@@ -1,18 +1,10 @@
 /*
- * @Descripttion:
- * @version:
- * @Author: DoveyLoveyCora
- * @Date: 2020-08-12 22:32:33
- * @LastEditors: DoveyLoveyCora
- * @LastEditTime: 2020-08-18 22:49:12
- */
-/*
- * @Descripttion:
- * @version:
- * @Author: DoveyLoveyCora
- * @Date: 2020-08-12 22:32:33
- * @LastEditors: DoveyLoveyCora
- * @LastEditTime: 2020-08-18 22:43:40
+ * @Description:
+ * @Version: 0.1.0
+ * @Autor: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-08-20 15:02:46
  */
 import { asyncRoutes, constantRoutes } from 'src/router'
 /**

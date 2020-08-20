@@ -3,8 +3,8 @@
  * @version:
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-05 22:13:39
- * @LastEditors: DoveyLoveyCora
- * @LastEditTime: 2020-08-18 22:35:12
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-08-20 17:28:47
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -17,6 +17,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'src/styles/index.scss'
 
+import 'src/assets/icons'
 import 'src/utils/permission' // 权限控制
 
 Vue.use(ElementUI, {

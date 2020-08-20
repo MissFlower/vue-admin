@@ -16,7 +16,12 @@ export const constantRoutes = [
       {
         path: 'home',
         name: 'Home',
-        component: () => import('src/views/Home')
+        component: () => import('src/views/Home'),
+        meta: {
+          title: 'Home',
+          icon: 'home',
+          affix: true
+        }
       }
     ]
   },

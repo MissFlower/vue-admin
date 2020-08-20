@@ -1,57 +1,62 @@
+<!--
+ * @Description: SideBar
+ * @Version: 0.1.0
+ * @Autor: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-08-20 16:47:52
+-->
 <template>
-  <div :class="['side-bar-container', isCollapse ? 'open-side-bar' : 'hide-side-bar']">
+  <div :class="['side-bar-container', !isCollapse ? 'open-side-bar' : 'hide-side-bar']">
     <ElMenu
-      default-active="1-2"
-      class="el-menu-vertical-demo"
+      :default-active="activeMenu"
+      :collapse="isCollapse"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
       :active-text-color="variables.menuActiveText"
-      :collapse="!isCollapse"
       :unique-opened="true"
       :collapse-transition="false"
+      mode="vertical"
+      class="el-menu-vertical-demo"
     >
-      <el-submenu index="1">
-        <template slot="title">
-          <div>
-            <i class="el-icon-location" />
-            <span slot="title">导航一</span>
-          </div>
-        </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-        <el-menu-item index="1-4">选项4</el-menu-item>
-      </el-submenu>
-      <el-submenu index="2">
-        <i class="el-icon-menu" />
-        <span slot="title">导航二</span>
-      </el-submenu>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document" />
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting" />
-        <span slot="title">导航四</span>
-      </el-menu-item>
+      <SiderbarItem
+        v-for="route in permission_routes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
+      />
     </ElMenu>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import variables from '@/styles/variables.scss'
+import SiderbarItem from './SiderbarItem'
 export default {
   name: 'SideBar',
+  components: {
+    SiderbarItem
+  },
   data() {
     return {
     }
   },
   computed: {
     ...mapGetters([
-      'sideBar'
+      'sideBar',
+      'permission_routes'
     ]),
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      // 如果设置路径，侧栏将突出显示您设置的路径
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    },
     isCollapse() {
-      return this.sideBar.opened
+      return !this.sideBar.opened
     },
     variables() {
       return variables
