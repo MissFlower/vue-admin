@@ -19,8 +19,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.app-main {
-  width: calc(100% - 260px);
-}
-</style>

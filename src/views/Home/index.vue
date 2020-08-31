@@ -28,6 +28,6 @@ export default {
 <style lang="scss" scoped>
 .aaa {
   width: 100px;
-  height: 100px;
+  height: 5000px;
 }
 </style>

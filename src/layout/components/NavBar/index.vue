@@ -9,7 +9,7 @@
     <div class="nav-bar-right">
       <ElDropdown class="right-menu-item hover-effect" trigger="click">
         <div class="demo-basic--circle">
-          <ElAvatar shape="square" :size="50" :src="require('src/assets/images/avatar.gif')" class="nav-bar-avator" />
+          <ElAvatar shape="square" :size="42" :src="require('src/assets/images/avatar.gif')" class="nav-bar-avator" />
           <i class="el-icon-caret-bottom" />
         </div>
         <ElDropdownMenu slot="dropdown">
@@ -60,9 +60,15 @@ export default {
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  height: 65px;
+  width: 100%;
+  height: 50px;
   box-sizing: border-box;
   border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
 
   .nav-bar-left {
     display: flex;
@@ -76,8 +82,8 @@ export default {
     }
 
     .logo {
-      width: 180px;
-      height: 64px;
+      width: 160px;
+      height: 48px;
     }
 
     .hamburger-container {
@@ -103,7 +109,7 @@ export default {
     }
 
     .demo-basic--circle {
-      height: 50px;
+      height: 42px;
       margin-right: 20px;
       outline: none;
 

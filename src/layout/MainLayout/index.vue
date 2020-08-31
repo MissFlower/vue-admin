@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div :class="classObj" class="app-wrapper">
     <!-- 导航栏 -->
     <NavBar />
     <div class="main-container">
@@ -13,12 +13,24 @@
 
 <script>
 import { NavBar, SideBar, AppMain } from 'src/layout/components'
+import { mapState } from 'Vuex'
 export default {
   name: 'MainLayout',
   components: {
     NavBar,
     SideBar,
     AppMain
+  },
+  computed: {
+    ...mapState({
+      sideBar: state => state.app.sideBar
+    }),
+    classObj() {
+      return {
+        hideSidebar: !this.sideBar.opened,
+        openSidebar: this.sideBar.opened
+      }
+    }
   }
 }
 </script>

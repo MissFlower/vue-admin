@@ -7,7 +7,7 @@
  * @LastEditTime: 2020-08-20 16:47:52
 -->
 <template>
-  <div :class="['side-bar-container', !isCollapse ? 'open-side-bar' : 'hide-side-bar']">
+  <div class="sidebar-container">
     <ElMenu
       :default-active="activeMenu"
       :collapse="isCollapse"
@@ -64,19 +64,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.side-bar-container {
-  transition: width 0.28s;
-  ::v-deep .el-menu {
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.open-side-bar {
-  width: 210px !important;
-}
-.hide-side-bar {
-  width: 54px !important;
-}
-</style>
