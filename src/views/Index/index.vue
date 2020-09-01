@@ -1,17 +1,17 @@
 <!--
  * @Description:
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-09-01 15:34:42
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-09-01 18:55:51
 -->
 <template>
   <div class="container">
-    <div class="banner">
+    <div class="banner animate__animated animate__fadeInDown">
       <div class="banner-content">
-        <p class="banner-title animate__animated animate__fadeInDown">IOT管理系统</p>
-        <div class="banner-text animate__animated animate__fadeInLeft">{{ iot_describe }}</div>
+        <p class="banner-title animate__animated animate__fadeInDown animate__delay-1s">IOT 管理系统</p>
+        <div class="banner-text animate__animated animate__fadeInLeft animate__delay-1s">{{ iot_describe }}</div>
       </div>
     </div>
   </div>

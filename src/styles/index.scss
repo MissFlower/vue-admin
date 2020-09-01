@@ -10,10 +10,7 @@ html, body {
 * {
   padding: 0;
   margin: 0;
-  -moz-user-select: -moz-none;
   -moz-user-select: none;
-  -o-user-select:none;
-  -khtml-user-select:none;
   -webkit-user-select:none;
   -ms-user-select:none;
   user-select:none;
@@ -24,8 +21,6 @@ img {
 a {
   text-decoration: none;
 }
-:root {
-  --animate-duration: 500ms;
-  --animate-delay: 300ms;
-  --animate-repeat: 0;
+.animate__animated {
+  animation-duration: 500ms !important;
 }
