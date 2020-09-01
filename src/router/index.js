@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Version: 0.1.0
+ * @Autor: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-01 17:37:32
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -5,16 +13,49 @@ Vue.use(VueRouter)
 
 /* Layout */
 import MainLayout from '@/layout/MainLayout'
-// import OpenLayout from '@/layout/OpenLayout'
+import OpenLayout from '@/layout/OpenLayout'
 
 export const constantRoutes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/index',
+    component: OpenLayout,
+    hidden: true,
+    children: [
+      {
+        path: 'index',
+        name: 'Index',
+        component: () => import('src/views/Index'),
+        meta: {
+          title: 'Index'
+        }
+      },
+      {
+        path: 'login',
+        name: 'Login',
+        component: () => import('src/views/Index/Login'),
+        hidden: true,
+        meta: {
+          title: 'Login'
+        }
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: () => import('src/views/Index/Register'),
+        hidden: true,
+        meta: {
+          title: 'register'
+        }
+      }
+    ]
+  },
+  {
+    path: '/home',
     component: MainLayout,
     children: [
       {
-        path: 'home',
+        path: '',
         name: 'Home',
         component: () => import('src/views/Home'),
         meta: {

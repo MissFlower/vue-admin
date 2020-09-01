@@ -7,9 +7,25 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
+* {
+  padding: 0;
+  margin: 0;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
 img {
   vertical-align: middle;
 }
 a {
   text-decoration: none;
+}
+:root {
+  --animate-duration: 500ms;
+  --animate-delay: 300ms;
+  --animate-repeat: 0;
 }

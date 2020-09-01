@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @Version: 0.1.0
+ * @Autor: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-01 15:28:47
+-->
 <template>
   <div :class="classObj" class="app-wrapper">
     <!-- 导航栏 -->
@@ -43,7 +51,7 @@ export default {
   .main-container {
     display: flex;
     justify-content: space-between;
-    height: calc(100% - 65px);
+    height: calc(100% - 50px);
   }
 }
 </style>

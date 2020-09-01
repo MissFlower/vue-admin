@@ -3,8 +3,8 @@
  * @version:
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-12 21:49:15
- * @LastEditors: DoveyLoveyCora
- * @LastEditTime: 2020-08-18 22:57:27
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-01 16:58:40
  */
 /*
  * @Descripttion:
@@ -24,7 +24,7 @@ import getPageTitle from '@/utils/getPageTitle' // 获取页面title
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login'] // no redirect whitelist
+const whiteList = ['/login', '/index'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // 开始调用进度条
@@ -32,7 +32,7 @@ router.beforeEach(async(to, from, next) => {
   // 设置页面title
   document.title = getPageTitle(to.meta.title)
   // 确定用户是否已登录
-  const hasToken = true || getToken()
+  const hasToken = getToken()
   if (hasToken) {
     // 用户已登录
     if (to.path === '/login') {
@@ -71,7 +71,7 @@ router.beforeEach(async(to, from, next) => {
     }
   } else {
     // 用户未登录
-    if (whiteList.indexOf(to.path) !== -1) {
+    if (~whiteList.indexOf(to.path)) {
       // 在免费登录白名单中，直接进入
       next()
     } else {

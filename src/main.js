@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-05 22:13:39
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-08-20 17:28:47
+ * @LastEditTime: 2020-09-01 19:04:47
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -12,6 +12,7 @@ import router from './router'
 import store from './store'
 import Cookies from 'js-cookie'
 
+import 'animate.css'
 import 'normalize.css/normalize.css' // css样式重置
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
