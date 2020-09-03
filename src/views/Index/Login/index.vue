@@ -1,7 +1,7 @@
 <!--
  * @Description: 登录
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-09-01 14:39:54
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-09-03 16:37:14
@@ -49,8 +49,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'aidongyang',
-        password: '123456'
+        username: 'AiDongYang',
+        password: '123456789'
       },
       rules: {
         username: [

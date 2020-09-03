@@ -1,13 +1,5 @@
 /*
- * @Description:
- * @Version: 0.1.0
- * @Author: AiDongYang
- * @Date: 2020-08-20 10:07:37
- * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 17:57:54
- */
-/*
- * @Descripttion: axios二次封装
+ * @Description: axios二次封装
  * @version: 1.0.0
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
@@ -26,8 +18,6 @@ const TIMEOUT = 10000
 // const BASE_URL = process.env.VUE_APP_BASE_API
 const BASE_URL = '/api'
 
-// import Vue from 'vue'
-
 const http = axios.create({
   baseURL: BASE_URL,
   timeout: TIMEOUT,
@@ -36,7 +26,7 @@ const http = axios.create({
       'X-Requested-with': 'XMLHttpRequest'
     },
     post: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json; charset=UTF-8'
     }
   }
 })
@@ -73,7 +63,9 @@ http.interceptors.response.use(response => {
   return result.data
 },
 error => {
-  store.commit(UPDATE_REQUREST_COUNT, -1)
+  if (error.config.loading) {
+    store.commit(UPDATE_REQUREST_COUNT, -1)
+  }
 
   // 处理请求超时
   if (error.code === 'ECONNABORTED' || error.message === 'Network Error') {
@@ -88,7 +80,7 @@ error => {
         Vue.prototype.$alert('你没有此项功能权限,请在取得权限后刷新重试。',
           {
             confirmButtonText: '刷新重试',
-            callback: action => {
+            callback: () => {
               location.reload()
             }
           }
@@ -155,6 +147,7 @@ request.postToURL = (url, params, { headers = {}, loading = true, showMessage = 
   }
   // post 请求使用request body 传递
   request[method] = (url, data, { headers = {}, loading = true, showMessage = true } = {}) => {
+    console.log(data)
     return http({
       url,
       data,

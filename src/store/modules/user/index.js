@@ -23,16 +23,21 @@ const mutations = {
 
 const actions = {
   // 登录
-  login() {
+  login({ commit }, params) {
     return new Promise((resolve, reject) => {
-      login().then(response => {
-        const { data } = response
-        console.log(data)
-      })
+      login(params)
+        .then(response => {
+          const { data } = response
+          console.log(data)
+          resolve()
+        })
+        .catch(error => {
+          reject(error)
+        })
     })
   },
   // 获取用户信息
-  getInfo({ commit, state }) {
+  getInfo({ commit }) {
     return new Promise((resolve, reject) => {
       getInfo().then(response => {
         const { data } = response

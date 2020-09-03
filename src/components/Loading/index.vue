@@ -40,19 +40,22 @@
     height: 100%;
     margin: 0 4px;
     border-radius: 1px;
-    background: rgb(124, 224, 124);
+    background: #3333ff;
     animation: load 1s ease infinite;
 
     &:nth-child(2) {
       animation-delay: 0.25s;
+      background: #0066ff;
     }
 
     &:nth-child(3) {
       animation-delay: 0.5s;
+      background: #33cc33;
     }
 
     &:nth-child(4) {
       animation-delay: 0.75s;
+      background: #00cc33;
     }
   }
 }
@@ -61,12 +64,10 @@
   0%,
   100%{
       height: 40px;
-      background: rgb(124, 224, 124);
   }
   50%{
       height: 70px;
       margin: -15px 4px;
-      background: rgb(25, 25, 207);
   }
 }
 </style>
