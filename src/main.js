@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: DoveyLoveyCora
- * @Date: 2020-08-05 22:13:39
- * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 19:04:47
- */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -23,7 +15,7 @@ import 'src/utils/permission' // 权限控制
 
 Vue.use(ElementUI, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
-  zIndex: 3000
+  zIndex: 30000
 })
 
 Vue.config.productionTip = false

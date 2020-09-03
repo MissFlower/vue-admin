@@ -1,4 +1,12 @@
-import { getInfo } from 'src/api/user'
+/*
+ * @Description:
+ * @Version: 0.1.0
+ * @Author: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-03 16:25:19
+ */
+import { login, getInfo } from 'src/api/user'
 const state = {
   name: '',
   permissionList: []
@@ -14,6 +22,15 @@ const mutations = {
 }
 
 const actions = {
+  // 登录
+  login() {
+    return new Promise((resolve, reject) => {
+      login().then(response => {
+        const { data } = response
+        console.log(data)
+      })
+    })
+  },
   // 获取用户信息
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {

@@ -22,7 +22,7 @@ module.exports = {
   rules: {
     // 设置每行最大属性数
     "vue/max-attributes-per-line": [2, {
-      "singleline": 5, // 标签为单行时，每行最大属性数值为 3，默认值为 1
+      "singleline": 5, // 标签为单行时，每行最大属性数值为 5，默认值为 1
       "multiline": {
         "max": 1, // 标签为多行时，每行最大属性数字为 1，默认值为 1
         "allowFirstLine": false // 不允许属性与该标记名称位于同一行，默认值为 false

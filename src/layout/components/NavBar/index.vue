@@ -76,7 +76,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1001;
+  z-index: 10001;
 
   .nav-bar-left {
     display: flex;

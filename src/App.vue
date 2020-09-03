@@ -4,14 +4,29 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 16:26:57
+ * @LastEditTime: 2020-09-03 17:45:53
 -->
 <template>
   <div id="app">
     <router-view />
+    <Loading v-show="showLoading" />
   </div>
 </template>
 
+<script>
+import Loading from 'src/components/Loading'
+export default {
+  name: 'App',
+  components: {
+    Loading
+  },
+  computed: {
+    showLoading() {
+      return this.$store.state.common.requestCount > 0
+    }
+  }
+}
+</script>
 <style lang="scss">
 #app {
   height: 100%;

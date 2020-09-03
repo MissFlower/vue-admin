@@ -1,8 +1,17 @@
+/*
+ * @Description:
+ * @Version: 0.1.0
+ * @Author: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-03 14:37:17
+ */
 import Cookie from 'js-cookie'
 const state = {
   sideBar: {
     opened: true
-  }
+  },
+  requestCount: 0
 }
 
 const mutations = {
@@ -13,6 +22,9 @@ const mutations = {
     } else {
       Cookie.set('sideBarStatus', 0)
     }
+  },
+  UPDATE_REQUEST_COUNT: (state, count) => {
+    state.requestCount += count
   }
 }
 
