@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-01 15:34:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-02 19:52:42
+ * @LastEditTime: 2020-09-04 18:59:42
 -->
 <template>
   <div ref="container" class="container">
@@ -190,6 +190,10 @@ export default {
       this.judgePosition()
     }, 300)
     document.addEventListener('scroll', this.$_scrollHandler, true)
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.$_scrollHandler, true)
+    this.$_scrollHandler = null
   },
   methods: {
     judgePosition() {

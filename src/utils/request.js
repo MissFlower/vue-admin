@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 16:40:56
+ * @LastEditTime: 2020-09-04 18:54:51
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -28,7 +28,11 @@ const http = axios.create({
     post: {
       'Content-Type': 'application/json; charset=UTF-8'
     }
-  }
+  },
+
+  // 设置拦截器中使用的默认值
+  loading: true,
+  showMessage: true
 })
 
 // http 请求拦截
@@ -50,8 +54,9 @@ http.interceptors.response.use(response => {
     store.commit(UPDATE_REQUREST_COUNT, -1)
   }
 
-  if (result.returnStatus !== 'Success') {
-    const msg = result.returnMsg || '服务器内部错误!'
+  // 请求失败
+  if (result.code !== '000000') {
+    const msg = result.msg || '服务器内部错误!'
     if (response.config.showMessage) {
       Message.error(`${msg}`)
     }
@@ -60,7 +65,7 @@ http.interceptors.response.use(response => {
   }
 
   // 请求成功
-  return result.data
+  return result
 },
 error => {
   if (error.config.loading) {
@@ -86,75 +91,70 @@ error => {
           }
         )
         break
+
+      case 401:
+        // 未登录
+        this.$router.push('/login')
+        break
+      default:
     }
   }
   return Promise.reject(error)
 })
 
 const request = {}
-request.postForm = (url, data, { headers = {}, loading = true, showMessage = true } = {}) => {
+request.postByFormData = (url, data, config) => {
   return http({
     url,
     method: 'post',
     data: qs.stringify(data),
     headers: {
-      ...headers,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; multipart/form-data'
     },
-    loading,
-    showMessage
+    ...config
   })
 }
-request.postUpload = (url, data, { headers = {}, loading = true, showMessage = true } = {}) => {
+request.post2Upload = (url, data, config) => {
   return http({
     url,
     method: 'post',
     data,
     headers: {
-      ...headers,
       'Content-Type': 'charset=UTF-8; multipart/form-data'
     },
-    loading,
-    showMessage
+    ...config
   })
 }
-request.postToURL = (url, params, { headers = {}, loading = true, showMessage = true } = {}) => {
+request.postByUrl = (url, params, config) => {
   return http({
     url,
     method: 'post',
     params,
     headers: {
-      ...headers,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     },
-    loading,
-    showMessage
+    ...config
   })
 }
-['get', 'post', 'put', 'delete'].forEach(method => {
+;['get', 'post', 'put', 'delete'].forEach(method => {
   if (method !== 'post') {
-    request[method] = (url, params, { headers = {}, loading = true, showMessage = true } = {}) => {
+    request[method] = (url, params, config) => {
       return http({
         url,
-        params,
         method,
-        headers,
-        loading,
-        showMessage
+        params,
+        ...config
       })
     }
     return
   }
   // post 请求使用request body 传递
-  request[method] = (url, data, { headers = {}, loading = true, showMessage = true } = {}) => {
-    console.log(data)
+  request[method] = (url, data, config) => {
     return http({
       url,
-      data,
       method,
-      headers,
-      loading,
-      showMessage
+      data,
+      ...config
     })
   }
 })

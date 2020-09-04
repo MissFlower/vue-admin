@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 16:25:19
+ * @LastEditTime: 2020-09-04 18:55:44
  */
 import { login, getInfo } from 'src/api/user'
 const state = {
@@ -28,8 +28,7 @@ const actions = {
       login(params)
         .then(response => {
           const { data } = response
-          console.log(data)
-          resolve()
+          resolve(data)
         })
         .catch(error => {
           reject(error)
