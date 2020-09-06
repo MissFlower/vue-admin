@@ -7,12 +7,19 @@
  * @LastEditTime: 2020-09-04 18:55:44
  */
 import { login, getInfo } from 'src/api/user'
+import { getToken, setToken, removeToken } from '@/utils/token'
+import { resetRouter } from '@/router'
+
 const state = {
+  token: getToken(),
   name: '',
   permissionList: []
 }
 
 const mutations = {
+  SET_TOKEN: (state, token) => {
+    state.token = token
+  },
   SET_NAME: (state, name) => {
     state.name = name
   },
@@ -27,36 +34,57 @@ const actions = {
     return new Promise((resolve, reject) => {
       login(params)
         .then(response => {
-          const { data } = response
-          resolve(data)
+          const { token } = response
+          commit('SET_TOKEN', token)
+          setToken('token', token)
+          resolve(response)
         })
         .catch(error => {
           reject(error)
         })
     })
   },
+  // 登出
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      commit('SET_TOKEN', '')
+      commit('SET_NAME', '')
+      commit('SET_PERMISSION_LIST', [])
+      removeToken('token')
+      resetRouter()
+      resolve()
+    })
+  },
   // 获取用户信息
   getInfo({ commit }) {
     return new Promise((resolve, reject) => {
       getInfo().then(response => {
-        const { data } = response
+        const { userInfo } = response
 
-        if (!data) {
+        if (!userInfo) {
           reject('Verification failed, please Login again.')
         }
-
-        const { name, permissionList } = data
+        const { userName, permissionList } = userInfo
 
         if (!permissionList || permissionList.length <= 0) {
           reject('getInfo: permissionList must be a non-null array!')
         }
 
-        commit('SET_NAME', name)
+        commit('SET_NAME', userName)
         commit('SET_PERMISSION_LIST', permissionList)
-        resolve(data)
+        resolve(userInfo)
       }).catch(error => {
         reject(error)
       })
+    })
+  },
+  // 重置token
+  resetToken({ commit }) {
+    return new Promise((resole, reject) => {
+      commit('SET_NAME', '')
+      commit('SET_PERMISSION_LIST', [])
+      removeToken('token')
+      resole()
     })
   }
 }

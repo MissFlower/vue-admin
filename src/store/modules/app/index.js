@@ -9,8 +9,11 @@
 import Cookie from 'js-cookie'
 const state = {
   sideBar: {
-    opened: Cookie.get('sideBarStatus') ? !!+Cookie.get('sideBarStatus') : true
-  }
+    opened: Cookie.get('sideBarStatus') ? !!+Cookie.get('sideBarStatus') : true,
+    withoutAnimation: false
+  },
+  device: 'desktop',
+  size: Cookie.get('size') || 'medium'
 }
 
 const mutations = {
@@ -21,12 +24,33 @@ const mutations = {
     } else {
       Cookie.set('sideBarStatus', 0)
     }
+  },
+  CLOSE_SIDEBAR: (state, withoutAnimation) => {
+    Cookie.set('sidebarStatus', 0)
+    state.sideBar.opened = false
+    state.sideBar.withoutAnimation = withoutAnimation
+  },
+  TOGGLE_DEVICE: (state, device) => {
+    state.device = device
+  },
+  SET_SIZE: (state, size) => {
+    state.size = size
+    Cookie.set('size', size)
   }
 }
 
 const actions = {
   toggleSideBar({ commit }) {
     commit('TOGGLE_SIDEBAR')
+  },
+  closeSideBar({ commit }) {
+
+  },
+  toggleDevice({ commit }, device) {
+    commit('TOGGLE_DEVICE', device)
+  },
+  setSize({ commit }, size) {
+    commit('SET_SIZE', size)
   }
 }
 

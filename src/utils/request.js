@@ -65,7 +65,7 @@ http.interceptors.response.use(response => {
   }
 
   // 请求成功
-  return result
+  return result.data
 },
 error => {
   if (error.config.loading) {

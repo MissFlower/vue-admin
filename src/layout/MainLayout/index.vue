@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-09-01 15:28:47
@@ -21,7 +21,8 @@
 
 <script>
 import { NavBar, SideBar, AppMain } from 'src/layout/components'
-import { mapState } from 'Vuex'
+import { mapState } from 'vuex'
+import ResizeMixin from '../mixin/ResizeHandler'
 export default {
   name: 'MainLayout',
   components: {
@@ -29,14 +30,18 @@ export default {
     SideBar,
     AppMain
   },
+  mixins: [ResizeMixin],
   computed: {
     ...mapState({
-      sideBar: state => state.app.sideBar
+      sideBar: state => state.app.sideBar,
+      device: state => state.app.device
     }),
     classObj() {
       return {
         hideSidebar: !this.sideBar.opened,
-        openSidebar: this.sideBar.opened
+        openSidebar: this.sideBar.opened,
+        withoutAnimation: this.sideBar.withoutAnimation,
+        mobile: this.device === 'mobile'
       }
     }
   }

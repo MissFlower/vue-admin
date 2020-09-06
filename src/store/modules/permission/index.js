@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-08-20 15:02:46
@@ -9,7 +9,7 @@
 import { asyncRoutes, constantRoutes } from 'src/router'
 /**
  * @Function: 判断当前用户是否具有权限
- * @Descripttion: 使用code确定当前用户是否具有权限
+ * @Description: 使用code确定当前用户是否具有权限
  * @param // permissionList, route
  * @return Boolean
  */
@@ -22,9 +22,9 @@ function hasPermission(permissionList, route) {
 }
 /**
  * @Function: 过滤异步路由表
- * @Descripttion: 递归过滤异步路由表
+ * @Description: 递归过滤异步路由表
  * @param // asyncRoutes permissionList
- * @return permissionList
+ * @return []
  */
 function filterAsyncRoutes(asyncRoutes, permissionList) {
   const res = []

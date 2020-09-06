@@ -10,11 +10,10 @@ import request from 'src/utils/request'
 
 /**
  * @description: 获取用户信息 和 权限表
- * @param {type}
  * @return {type}
  * @author: AiDongYang
  */
-export function getInfo(params) {
+export function getInfo() {
   return request.get('/user/info', { token: 123 })
 }
 

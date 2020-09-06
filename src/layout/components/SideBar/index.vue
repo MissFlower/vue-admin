@@ -1,41 +1,43 @@
 <!--
  * @Description: SideBar
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-08-20 16:47:52
 -->
 <template>
   <div class="sidebar-container">
-    <ElMenu
-      :default-active="activeMenu"
-      :collapse="isCollapse"
-      :background-color="variables.menuBg"
-      :text-color="variables.menuText"
-      :active-text-color="variables.menuActiveText"
-      :unique-opened="true"
-      :collapse-transition="false"
-      mode="vertical"
-      class="el-menu-vertical-demo"
-    >
-      <SiderbarItem
-        v-for="route in permission_routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />
-    </ElMenu>
+    <ElScrollbar wrap-class="scrollbar-wrapper">
+      <ElMenu
+        :default-active="activeMenu"
+        :collapse="isCollapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuText"
+        :active-text-color="variables.menuActiveText"
+        :unique-opened="true"
+        :collapse-transition="false"
+        mode="vertical"
+        class="el-menu-vertical-demo"
+      >
+        <SidebarItem
+          v-for="route in permission_routes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </ElMenu>
+    </ElScrollbar>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import variables from '@/styles/variables.scss'
-import SiderbarItem from './SiderbarItem'
+import SidebarItem from './SidebarItem'
 export default {
   name: 'SideBar',
   components: {
-    SiderbarItem
+    SidebarItem: SidebarItem
   },
   data() {
     return {

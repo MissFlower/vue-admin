@@ -60,6 +60,10 @@ export default {
     },
     logout() {
       // 登出
+      this.$store.dispatch('user/logout')
+        .then(res => {
+          this.$router.push('/login')
+        })
     }
   }
 }
@@ -84,13 +88,13 @@ export default {
     align-items: center;
 
     .logo-box {
-      width: 200px;
-      margin-left: 20px;
+      width: 210px;
+      padding-left: 20px;
       text-align: left;
     }
 
     .logo {
-      width: 160px;
+      width: 80px;
       height: 48px;
     }
 

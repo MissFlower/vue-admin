@@ -1,13 +1,5 @@
 /*
- * @Descripttion:
- * @version:
- * @Author: DoveyLoveyCora
- * @Date: 2020-08-12 21:49:15
- * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 16:58:40
- */
-/*
- * @Descripttion:
+ * @Description:
  * @version:
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-12 21:49:15
@@ -32,7 +24,7 @@ router.beforeEach(async(to, from, next) => {
   // 设置页面title
   document.title = getPageTitle(to.meta.title)
   // 确定用户是否已登录
-  const hasToken = getToken()
+  const hasToken = getToken('token')
   if (hasToken) {
     // 用户已登录
     if (to.path === '/login') {

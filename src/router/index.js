@@ -136,7 +136,7 @@ export const asyncRoutes = [
         meta: { title: 'Drag Table', code: '001002' }
       },
       {
-        path: 'inlineEditEable',
+        path: 'inlineEditEnable',
         name: 'InlineEditTable',
         component: () => import('src/views/InlineEditTable'),
         meta: { title: 'Inline Edit', code: '001003' }
@@ -202,6 +202,13 @@ const router = createRouter()
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
+}
+
+// 解决Vue-Router升级导致的Uncaught(in promise) navigation guard问题
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
 }
 
 export default router

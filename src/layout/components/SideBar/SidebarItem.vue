@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Version: 0.1.0
- * @Autor: AiDongYang
+ * @Author: AiDongYang
  * @Date: 2020-08-20 15:05:34
  * @LastEditors: AiDongYang
  * @LastEditTime: 2020-08-20 16:44:01
@@ -21,7 +21,7 @@
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
       </template>
-      <SiderbarItem
+      <SidebarItem
         v-for="child in item.children"
         :key="child.path"
         :is-nest="true"
@@ -38,7 +38,7 @@ import { isExternal } from '@/utils/validate'
 import Item from './Item'
 import AppLink from './Link'
 export default {
-  name: 'SiderbarItem',
+  name: 'SidebarItem',
   components: {
     Item,
     AppLink
