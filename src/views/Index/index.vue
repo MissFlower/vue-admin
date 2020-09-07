@@ -4,10 +4,10 @@
  * @Author: AiDongYang
  * @Date: 2020-09-01 15:34:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-04 18:59:42
+ * @LastEditTime: 2020-09-07 10:38:35
 -->
 <template>
-  <div ref="container" class="container">
+  <div ref="container" class="index-container">
     <div class="banner">
       <div class="banner-content">
         <p class="banner-title clearfix">
@@ -216,6 +216,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.index-container {
+  overflow: auto;
+}
 .banner {
   background-image: url('~src/assets/images/banner.png');
   background-size: cover;

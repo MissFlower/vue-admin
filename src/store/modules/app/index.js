@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-04 10:40:07
+ * @LastEditTime: 2020-09-07 13:56:53
  */
 import Cookie from 'js-cookie'
 const state = {
@@ -32,6 +32,14 @@ const mutations = {
   },
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
+    console.log(device)
+    if (device === 'mobile') {
+      state.sideBar.opened = false
+      Cookie.set('sideBarStatus', 0)
+    } else {
+      state.sideBar.opened = true
+      Cookie.set('sideBarStatus', 1)
+    }
   },
   SET_SIZE: (state, size) => {
     state.size = size

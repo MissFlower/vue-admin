@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 17:37:32
+ * @LastEditTime: 2020-09-07 17:32:04
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -104,7 +104,7 @@ export const constantRoutes = [
       component: () => import('src/views/About'),
       meta: {
         title: 'About',
-        icon: 'About',
+        icon: 'about',
         noCache: true
       }
     }]
@@ -115,8 +115,8 @@ export const asyncRoutes = [
   {
     path: '/table',
     component: MainLayout,
-    redirect: '/table/dynamicTable',
     name: 'Table',
+    redirect: '/table/dynamicTable',
     meta: {
       title: 'Table',
       icon: 'table',
@@ -152,8 +152,8 @@ export const asyncRoutes = [
   {
     path: '/charts',
     component: MainLayout,
-    redirect: 'noRedirect',
     name: 'Charts',
+    redirect: '/charts/keyboardChart',
     meta: {
       title: 'Charts',
       icon: 'chart',

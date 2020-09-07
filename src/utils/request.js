@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-04 18:54:51
+ * @LastEditTime: 2020-09-07 19:12:35
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -37,6 +37,7 @@ const http = axios.create({
 
 // http 请求拦截
 http.interceptors.request.use(config => {
+  console.log(config)
   if (config.loading) {
     store.commit(UPDATE_REQUREST_COUNT, 1)
   }
@@ -67,7 +68,7 @@ http.interceptors.response.use(response => {
   // 请求成功
   return result.data
 },
-error => {
+async error => {
   if (error.config.loading) {
     store.commit(UPDATE_REQUREST_COUNT, -1)
   }
@@ -114,6 +115,7 @@ request.postByFormData = (url, data, config) => {
     ...config
   })
 }
+
 request.post2Upload = (url, data, config) => {
   return http({
     url,
@@ -125,6 +127,7 @@ request.post2Upload = (url, data, config) => {
     ...config
   })
 }
+
 request.postByUrl = (url, params, config) => {
   return http({
     url,
@@ -136,6 +139,7 @@ request.postByUrl = (url, params, config) => {
     ...config
   })
 }
+
 ;['get', 'post', 'put', 'delete'].forEach(method => {
   if (method !== 'post') {
     request[method] = (url, params, config) => {
@@ -148,6 +152,7 @@ request.postByUrl = (url, params, config) => {
     }
     return
   }
+
   // post 请求使用request body 传递
   request[method] = (url, data, config) => {
     return http({

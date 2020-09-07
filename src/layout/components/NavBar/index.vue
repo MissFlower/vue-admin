@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 15:55:03
+ * @LastEditTime: 2020-09-07 16:45:06
 -->
 <template>
   <div class="nav-bar">
@@ -13,6 +13,7 @@
         <img :src="require('src/assets/images/logo.png')" alt="logo" class="logo">
       </div>
       <Hamburger id="hamburger-container" :is-active="sideBar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+      <Breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     </div>
     <div class="nav-bar-right">
       <ElDropdown class="right-menu-item hover-effect" trigger="click">
@@ -44,10 +45,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import Hamburger from 'src/components/Hamburger'
+import Breadcrumb from 'src/components/Breadcrumb'
 export default {
   name: 'NavBar',
   components: {
-    Hamburger
+    Hamburger,
+    Breadcrumb
   },
   computed: {
     ...mapGetters([
@@ -100,6 +103,7 @@ export default {
 
     .hamburger-container {
       display: inline-block;
+      margin-left: -15px;
     }
   }
 

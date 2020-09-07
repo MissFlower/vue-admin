@@ -4,17 +4,19 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 15:28:47
+ * @LastEditTime: 2020-09-07 16:45:15
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
     <!-- 导航栏 -->
     <NavBar />
-    <div class="main-container">
+    <div class="main">
       <!-- 左侧菜单栏 -->
       <SideBar />
       <!-- 右侧展示区 -->
-      <AppMain />
+      <div class="main-container">
+        <AppMain />
+      </div>
     </div>
   </div>
 </template>
@@ -53,10 +55,12 @@ export default {
   height: 100%;
   position: relative;
 
-  .main-container {
-    display: flex;
-    justify-content: space-between;
-    height: calc(100% - 50px);
+  .main {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    position: relative;
+    overflow: auto;
   }
 }
 </style>

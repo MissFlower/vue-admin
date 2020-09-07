@@ -4,15 +4,13 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-01 19:16:32
+ * @LastEditTime: 2020-09-07 16:41:17
 -->
 <template>
   <section class="app-main">
     <transition
+      name="fade-transform"
       mode="out-in"
-      :duration="{ enter: 300, leave: 0 }"
-      enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut"
     >
       <!-- <keep-alive :include="cachedViews">
         <router-view :key="key" />
@@ -32,3 +30,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.app-main {
+  min-width: 1170px;
+  /* 50= navbar  50  */
+  min-height: calc(100vh - 50px);
+  overflow: auto;
+  height: 100%;
+  padding: 24px;
+}
+</style>
