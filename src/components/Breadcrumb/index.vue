@@ -10,14 +10,14 @@
   <ElBreadcrumb class="app-breadcrumb" separator="/">
     <TransitionGroup name="breadcrumb">
       <ElBreadcrumbItem v-for="(item,index) in levelList" :key="item.path">
-        <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{ item.meta.title }}</span>
+        <span v-if="item.redirect === 'noRedirect' || index === levelList.length - 1" class="no-redirect">{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </ElBreadcrumbItem>
     </TransitionGroup>
   </ElBreadcrumb>
 </template>
 <script>
-import pathToRegexp from 'path-to-regexp'
+import * as pathToRegexp from 'path-to-regexp'
 export default {
   name: 'Breadcrumb',
   data() {
@@ -52,7 +52,7 @@ export default {
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
       const { params } = this.$route
-      var toPath = pathToRegexp.compile(path)
+      const toPath = pathToRegexp.compile(path)
       return toPath(params)
     },
     handleLink(item) {

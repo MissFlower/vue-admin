@@ -35,7 +35,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // 要跨域的域名
+        target: 'http://localhost:4000', // 要跨域的域名
         changeOrigin: true, // 是否开启跨域
         // ws: true, // proxy websockets
         // pathRewrite方法重写url
@@ -46,7 +46,7 @@ module.exports = {
         }
       },
       '/get': {
-        target: 'http://localhost:3000', // 要跨域的域名
+        target: 'http://localhost:4000', // 要跨域的域名
         changeOrigin: true // 是否开启跨域
       }
     }

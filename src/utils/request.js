@@ -11,7 +11,7 @@ import qs from 'qs'
 import store from 'src/store'
 import Vue from 'vue'
 import { Message } from 'element-ui'
-import { UPDATE_REQUREST_COUNT } from 'src/store/modules/common/types'
+import { UPDATE_REQUEST_COUNT } from 'src/store/modules/common/types'
 
 // 请求超时时间
 const TIMEOUT = 10000
@@ -37,9 +37,8 @@ const http = axios.create({
 
 // http 请求拦截
 http.interceptors.request.use(config => {
-  console.log(config)
   if (config.loading) {
-    store.commit(UPDATE_REQUREST_COUNT, 1)
+    store.commit(UPDATE_REQUEST_COUNT, 1)
   }
   return config
 },
@@ -52,7 +51,7 @@ http.interceptors.response.use(response => {
   const result = response.data
 
   if (response.config.loading) {
-    store.commit(UPDATE_REQUREST_COUNT, -1)
+    store.commit(UPDATE_REQUEST_COUNT, -1)
   }
 
   // 请求失败
@@ -68,9 +67,9 @@ http.interceptors.response.use(response => {
   // 请求成功
   return result.data
 },
-async error => {
+error => {
   if (error.config.loading) {
-    store.commit(UPDATE_REQUREST_COUNT, -1)
+    store.commit(UPDATE_REQUEST_COUNT, -1)
   }
 
   // 处理请求超时
@@ -154,21 +153,12 @@ request.postByUrl = (url, params, config) => {
   }
 
   // post 请求使用request body 传递
-  // request[method] = (url, data, config) => {
-  //   return http({
-  //     url,
-  //     method,
-  //     data,
-  //     ...config
-  //   })
-  // }
-  request[method] = (url, data, { loading = true, showMessage = true } = {}) => {
+  request[method] = (url, data, config) => {
     return http({
       url,
       method,
       data,
-      loading,
-      showMessage
+      ...config
     })
   }
 })

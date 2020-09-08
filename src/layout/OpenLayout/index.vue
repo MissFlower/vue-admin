@@ -11,7 +11,7 @@
     <!-- 导航栏 -->
     <NavBar />
     <!-- 内容区 -->
-    <div class="main">
+    <div class="index-main">
       <AppMain />
     </div>
   </div>
@@ -29,12 +29,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main {
+.index-main {
   width: 100%;
   height: 100%;
   padding-top: 50px;
   position: relative;
   min-width: 1280px;
   overflow: auto;
+
+  .app-main {
+    padding: 0;
+  }
 }
 </style>

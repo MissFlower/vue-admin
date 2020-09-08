@@ -4,14 +4,6 @@
  * @Author: AiDongYang
  * @Date: 2020-09-03 16:50:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-08 21:12:42
- */
-/*
- * @Description:
- * @Version: 0.1.0
- * @Author: AiDongYang
- * @Date: 2020-09-03 16:50:42
- * @LastEditors: AiDongYang
  * @LastEditTime: 2020-09-03 17:07:28
  */
 import * as types from './types'
