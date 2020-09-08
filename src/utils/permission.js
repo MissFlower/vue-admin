@@ -3,8 +3,8 @@
  * @version:
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-12 21:49:15
- * @LastEditors: DoveyLoveyCora
- * @LastEditTime: 2020-08-18 22:40:11
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-08 14:33:06
  */
 import router from 'src/router'
 import store from 'src/store'
@@ -16,7 +16,7 @@ import getPageTitle from '@/utils/getPageTitle' // 获取页面title
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login', '/index'] // no redirect whitelist
+const whiteList = ['/login', '/index', '/register'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // 开始调用进度条

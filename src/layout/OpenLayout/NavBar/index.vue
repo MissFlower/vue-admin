@@ -8,19 +8,25 @@
       <div class="nav-bar-right">
         <ElLink :underline="false" class="nav-btn">文档</ElLink>
         <ElLink :underline="false" class="nav-btn" @click="goHome">控制台</ElLink>
-        <ElLink v-if="isShowLogin" type="success" :underline="false" class="nav-btn animate__animated animate__fadeIn" @click="login">登录</ElLink>
-        <ElButton v-if="isShowLogin" type="success" size="mini" class="animate__animated animate__fadeIn" @click="register">注册</ElButton>
+        <ElLink v-if="isShowLogin && !hasToken" type="success" :underline="false" class="nav-btn animate__animated animate__fadeIn" @click="login">登录</ElLink>
+        <ElButton v-if="isShowLogin && !hasToken" type="success" size="mini" class="animate__animated animate__fadeIn" @click="register">注册</ElButton>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'NavBar',
   data() {
     return {
       isShowLogin: true
     }
+  },
+  computed: {
+    ...mapGetters({
+      hasToken: 'token'
+    })
   },
   watch: {
     '$route.path': {

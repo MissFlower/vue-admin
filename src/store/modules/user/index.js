@@ -4,9 +4,9 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-04 18:55:44
+ * @LastEditTime: 2020-09-08 15:01:19
  */
-import { login, getInfo } from 'src/api/user'
+import { login, register, getInfo } from 'src/api/user'
 import { getToken, setToken, removeToken } from '@/utils/token'
 import { resetRouter } from '@/router'
 
@@ -53,6 +53,21 @@ const actions = {
       removeToken('token')
       resetRouter()
       resolve()
+    })
+  },
+  // 注册
+  register({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      register(params)
+        .then(response => {
+          const { token } = response
+          commit('SET_TOKEN', token)
+          setToken('token', token)
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
     })
   },
   // 获取用户信息

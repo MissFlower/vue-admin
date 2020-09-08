@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-07 17:32:04
+ * @LastEditTime: 2020-09-08 13:07:01
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -60,7 +60,7 @@ export const constantRoutes = [
         component: () => import('src/views/Home'),
         meta: {
           title: 'Home',
-          icon: 'home',
+          icon: 'el-icon-s-home',
           affix: true
         }
       }

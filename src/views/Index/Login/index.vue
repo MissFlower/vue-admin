@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-01 14:39:54
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 16:37:14
+ * @LastEditTime: 2020-09-08 16:59:19
 -->
 <template>
   <div class="login-container">
@@ -38,7 +38,7 @@
       </ElForm>
       <div class="login-btn-box">
         <ElButton type="success" class="login-btn" @click.native.prevent="login">登录</ElButton>
-        <ElLink type="success" :underline="false" class="register-btn">立即注册</ElLink>
+        <ElLink type="success" :underline="false" class="register-btn" @click.native.prevent="register">立即注册</ElLink>
       </div>
     </div>
   </div>
@@ -49,15 +49,15 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'AiDongYang',
-        password: '123456789'
+        username: 'Admin',
+        password: 'Love7758258'
       },
       rules: {
         username: [
-          { required: true, pattern: /^[\u4e00-\u9fa5a-zA-Z_-]{6,12}$/, message: '请输入中英文横杠下划线6-12个字!', trigger: 'blur' }
+          { required: true, message: '请输入用户名!', trigger: 'blur' }
         ],
         password: [
-          { required: true, pattern: /^[0-9a-zA-Z_-]{6,12}$/, message: '请输入数字英文横杠下划线6-12个字!', trigger: 'blur' }
+          { required: true, message: '请输入密码!', trigger: 'blur' }
         ]
       },
       redirect: undefined,
@@ -108,6 +108,11 @@ export default {
         }
         return acc
       }, {})
+    },
+    register() {
+      this.$router.push({
+        path: '/register'
+      })
     }
   }
 }
@@ -116,7 +121,7 @@ export default {
 .login-container {
   width: 100%;
   height: 100%;
-  background: url('../../../assets/images/login-background.png') no-repeat;
+  background: url('~src/assets/images/login-background.png') no-repeat;
   background-size: cover;
   position: relative;
   overflow: auto;

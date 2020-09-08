@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-07 19:12:35
+ * @LastEditTime: 2020-09-08 21:24:38
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -154,12 +154,21 @@ request.postByUrl = (url, params, config) => {
   }
 
   // post 请求使用request body 传递
-  request[method] = (url, data, config) => {
+  // request[method] = (url, data, config) => {
+  //   return http({
+  //     url,
+  //     method,
+  //     data,
+  //     ...config
+  //   })
+  // }
+  request[method] = (url, data, { loading = true, showMessage = true } = {}) => {
     return http({
       url,
       method,
       data,
-      ...config
+      loading,
+      showMessage
     })
   }
 })
