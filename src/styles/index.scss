@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './sidebar.scss';
 @import './transition.scss';
+@import './message.scss';
 html, body {
   height: 100%;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
@@ -69,7 +70,8 @@ a:focus {
 }
 
 .el-menu-item [class^=el-icon-] {
-  width: initial;
+  // width: initial;
+  width: 18px;
 }
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/

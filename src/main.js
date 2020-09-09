@@ -3,12 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Cookies from 'js-cookie'
-
-import 'animate.css'
-import 'normalize.css/normalize.css' // css样式重置
 import ElementUI from 'element-ui'
+
+import 'normalize.css/normalize.css' // css样式重置
 import 'element-ui/lib/theme-chalk/index.css'
 import 'src/styles/index.scss'
+import 'animate.css'
 
 import 'src/assets/icons'
 import 'src/utils/permission' // 权限控制

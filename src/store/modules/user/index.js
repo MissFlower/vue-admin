@@ -4,39 +4,41 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-08 15:01:19
+ * @LastEditTime: 2020-09-09 20:28:17
  */
 import { login, register, getInfo } from 'src/api/user'
 import { getToken, setToken, removeToken } from '@/utils/token'
 import { resetRouter } from '@/router'
+import * as types from './types'
+import defaultSettings from 'src/settings'
 
 const state = {
-  token: getToken(),
+  token: getToken(defaultSettings.TOKEN_NAME),
   name: '',
   permissionList: []
 }
 
 const mutations = {
-  SET_TOKEN: (state, token) => {
+  [types.SET_TOKEN]: (state, token) => {
     state.token = token
   },
-  SET_NAME: (state, name) => {
+  [types.SET_NAME]: (state, name) => {
     state.name = name
   },
-  SET_PERMISSION_LIST: (state, permissionList) => {
+  [types.SET_PERMISSION_LIST]: (state, permissionList) => {
     state.permissionList = permissionList
   }
 }
 
 const actions = {
   // 登录
-  login({ commit }, params) {
+  [types.login]({ commit }, params) {
     return new Promise((resolve, reject) => {
       login(params)
         .then(response => {
           const { token } = response
-          commit('SET_TOKEN', token)
-          setToken('token', token)
+          commit(types.SET_TOKEN, token)
+          setToken(defaultSettings.TOKEN_NAME, token)
           resolve(response)
         })
         .catch(error => {
@@ -45,24 +47,21 @@ const actions = {
     })
   },
   // 登出
-  logout({ commit }) {
+  [types.logout]({ dispatch, commit }) {
     return new Promise((resolve, reject) => {
-      commit('SET_TOKEN', '')
-      commit('SET_NAME', '')
-      commit('SET_PERMISSION_LIST', [])
-      removeToken('token')
+      dispatch(types.resetToken)
       resetRouter()
       resolve()
     })
   },
   // 注册
-  register({ commit }, params) {
+  [types.register]({ commit }, params) {
     return new Promise((resolve, reject) => {
       register(params)
         .then(response => {
           const { token } = response
-          commit('SET_TOKEN', token)
-          setToken('token', token)
+          commit(types.SET_TOKEN, token)
+          setToken(defaultSettings.TOKEN_NAME, token)
           resolve(response)
         })
         .catch(error => {
@@ -71,7 +70,7 @@ const actions = {
     })
   },
   // 获取用户信息
-  getInfo({ commit }) {
+  [types.getInfo]({ commit }) {
     return new Promise((resolve, reject) => {
       getInfo().then(response => {
         const { userInfo } = response
@@ -85,8 +84,8 @@ const actions = {
           reject('getInfo: permissionList must be a non-null array!')
         }
 
-        commit('SET_NAME', userName)
-        commit('SET_PERMISSION_LIST', permissionList)
+        commit(types.SET_NAME, userName)
+        commit(types.SET_PERMISSION_LIST, permissionList)
         resolve(userInfo)
       }).catch(error => {
         reject(error)
@@ -94,11 +93,12 @@ const actions = {
     })
   },
   // 重置token
-  resetToken({ commit }) {
+  [types.resetToken]({ commit }) {
     return new Promise((resole, reject) => {
-      commit('SET_NAME', '')
-      commit('SET_PERMISSION_LIST', [])
-      removeToken('token')
+      commit(types.SET_TOKEN, '')
+      commit(types.SET_NAME, '')
+      commit(types.SET_PERMISSION_LIST, [])
+      removeToken(defaultSettings.TOKEN_NAME)
       resole()
     })
   }

@@ -4,14 +4,16 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-08-20 15:02:46
+ * @LastEditTime: 2020-09-09 11:14:14
  */
 import { asyncRoutes, constantRoutes } from 'src/router'
+import * as types from './types'
 /**
  * @Function: 判断当前用户是否具有权限
  * @Description: 使用code确定当前用户是否具有权限
- * @param // permissionList, route
- * @return Boolean
+ * @param {permissionList}
+ * @param {route}
+ * @return {Boolean}
  */
 function hasPermission(permissionList, route) {
   if (route.meta && route.meta.code) {
@@ -23,8 +25,9 @@ function hasPermission(permissionList, route) {
 /**
  * @Function: 过滤异步路由表
  * @Description: 递归过滤异步路由表
- * @param // asyncRoutes permissionList
- * @return []
+ * @param {asyncRoutes}
+ * @param {permissionList}
+ * @return {[]}
  */
 function filterAsyncRoutes(asyncRoutes, permissionList) {
   const res = []
@@ -45,17 +48,17 @@ const state = {
 }
 
 const mutations = {
-  SET_ROUTES: (state, routes) => {
+  [types.SET_ROUTES]: (state, routes) => {
     state.addRoutes = routes
     state.routes = constantRoutes.concat(routes)
   }
 }
 
 const actions = {
-  generateRoutes({ commit }, permissionList) {
+  [types.generateRoutes]({ commit }, permissionList) {
     return new Promise(resolve => {
       const accessedRoutes = filterAsyncRoutes(asyncRoutes, permissionList)
-      commit('SET_ROUTES', accessedRoutes)
+      commit(types.SET_ROUTES, accessedRoutes)
       resolve(accessedRoutes)
     })
   }

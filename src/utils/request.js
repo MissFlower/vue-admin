@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-08 21:24:38
+ * @LastEditTime: 2020-09-09 20:06:48
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -12,6 +12,8 @@ import store from 'src/store'
 import Vue from 'vue'
 import { Message } from 'element-ui'
 import { UPDATE_REQUEST_COUNT } from 'src/store/modules/common/types'
+import { getToken } from '@/utils/token'
+import defaultSettings from 'src/settings'
 
 // 请求超时时间
 const TIMEOUT = 10000
@@ -39,6 +41,10 @@ const http = axios.create({
 http.interceptors.request.use(config => {
   if (config.loading) {
     store.commit(UPDATE_REQUEST_COUNT, 1)
+  }
+  const token = getToken(defaultSettings.TOKEN_NAME)
+  if (token) {
+    config.headers[defaultSettings.TOKEN_NAME] = token
   }
   return config
 },
@@ -94,7 +100,7 @@ error => {
 
       case 401:
         // 未登录
-        this.$router.push('/login')
+        Message.warning('登录已过期,请重新登录!')
         break
       default:
     }

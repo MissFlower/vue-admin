@@ -4,15 +4,16 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-12 21:49:15
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-08 14:33:06
+ * @LastEditTime: 2020-09-09 17:01:35
  */
 import router from 'src/router'
 import store from 'src/store'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css' // 进度条样式
 import { getToken } from '@/utils/token' // 从Cookie里获取token
 import getPageTitle from '@/utils/getPageTitle' // 获取页面title
+import defaultSettings from 'src/settings'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
@@ -24,7 +25,7 @@ router.beforeEach(async(to, from, next) => {
   // 设置页面title
   document.title = getPageTitle(to.meta.title)
   // 确定用户是否已登录
-  const hasToken = getToken('token')
+  const hasToken = getToken(defaultSettings.TOKEN_NAME)
   if (hasToken) {
     // 用户已登录
     if (to.path === '/login') {
@@ -53,7 +54,7 @@ router.beforeEach(async(to, from, next) => {
           // 删除token(令牌)并转到登录页面重新登录
           await store.dispatch('user/resetToken')
           // 向页面抛错
-          Message.error(error || 'Has Error')
+          // Message.error(error || 'Has Error')
           // 重定向到登录页重新登录
           next(`/login?redirect=${to.path}`)
           // 进度条结束

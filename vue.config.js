@@ -1,5 +1,9 @@
 'use strict'
 const path = require('path')
+const defaultSettings = require('./src/settings')
+const config = require('./package.json')
+
+const title = defaultSettings.title || 'Vue Element Admin'
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -9,8 +13,8 @@ function resolve(dir) {
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
 // You can change the port by the following method:
-// port = 9527 npm run dev OR npm run dev --port = 9527
-const port = process.env.port || process.env.npm_config_port || 8080 // dev port
+// port = 8080 npm run dev OR npm run dev --port = 8080
+const port = process.env.port || process.env.npm_config_port || 5924 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -52,6 +56,7 @@ module.exports = {
     }
   },
   configureWebpack: {
+    name: title,
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
     resolve: {
@@ -59,6 +64,10 @@ module.exports = {
         '@': resolve('src'),
         'src': resolve('src')
       }
+    },
+    output: {
+      filename: `js/[name].${config.version}.js`, // 每次构建打包时给文件名加上时间戳，确保每次版本更新的文件名不一样
+      chunkFilename: `js/[name].${config.version}.js`
     }
   },
   chainWebpack(config) {
