@@ -4,10 +4,10 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-07 16:41:17
+ * @LastEditTime: 2020-09-10 14:46:19
 -->
 <template>
-  <section class="app-main">
+  <section ref="appMain" :class="isIndex ? 'index-main' : 'app-main'">
     <transition
       name="fade-transform"
       mode="out-in"
@@ -26,18 +26,22 @@ export default {
   computed: {
     key() {
       return this.$route.path
+    },
+    isIndex() {
+      return this.$route.path === '/index'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.app-main {
-  min-width: 1170px;
-  /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
+.app-main,
+.index-main {
   overflow: auto;
   height: 100%;
+}
+.app-main {
+  min-width: 1170px;
   padding: 24px;
 }
 </style>

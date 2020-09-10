@@ -2,43 +2,39 @@
  * @Description:
  * @Version: 0.1.0
  * @Author: AiDongYang
- * @Date: 2020-09-10 15:21:11
+ * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 15:30:24
+ * @LastEditTime: 2020-09-10 14:01:13
 -->
 <template>
   <div class="app-wrapper">
     <!-- 导航栏 -->
     <NavBar />
+    <!-- 内容区 -->
     <div class="main">
       <AppMain />
     </div>
   </div>
 </template>
-
 <script>
-import NavBar from './NavBar'
 import { AppMain } from 'src/layout/components'
+import NavBar from './NavBar'
 export default {
-  name: 'MainLayout',
+  name: 'OpenLayout',
   components: {
-    NavBar,
-    AppMain
+    AppMain,
+    NavBar
   }
 }
 </script>
+
 <style lang="scss" scoped>
-.app-wrapper {
+.main {
   width: 100%;
   height: 100%;
+  padding-top: 50px;
   position: relative;
-
-  .main {
-    width: 100%;
-    height: 100%;
-    padding-top: 50px;
-    position: relative;
-    overflow: auto;
-  }
+  min-width: 1280px;
+  overflow: auto;
 }
 </style>

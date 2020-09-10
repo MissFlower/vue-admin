@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-09 11:14:14
+ * @LastEditTime: 2020-09-10 18:26:10
  */
 import { asyncRoutes, constantRoutes } from 'src/router'
 import * as types from './types'
@@ -19,7 +19,7 @@ function hasPermission(permissionList, route) {
   if (route.meta && route.meta.code) {
     return !!permissionList.find(permission => permission.code === route.meta.code)
   } else {
-    return false
+    return true
   }
 }
 /**
@@ -33,7 +33,7 @@ function filterAsyncRoutes(asyncRoutes, permissionList) {
   const res = []
   asyncRoutes.forEach(route => {
     const tmp = { ...route }
-    if (!route.hidden && hasPermission(permissionList, route)) {
+    if (hasPermission(permissionList, route)) {
       if (tmp.children) {
         tmp.children = filterAsyncRoutes(tmp.children, permissionList)
       }

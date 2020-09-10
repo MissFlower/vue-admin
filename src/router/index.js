@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-08 13:07:01
+ * @LastEditTime: 2020-09-10 16:05:52
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -12,14 +12,15 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 /* Layout */
-import MainLayout from '@/layout/MainLayout'
-import OpenLayout from '@/layout/OpenLayout'
+import MainLayout from '@/layout/MainLayout' // nav + sidebar + main
+import IndexLayout from '@/layout/IndexLayout' // index-nav + main
+import OpenLayout from '@/layout/OpenLayout' // open-nav + main
 
 export const constantRoutes = [
   {
     path: '/',
     redirect: '/index',
-    component: OpenLayout,
+    component: IndexLayout,
     hidden: true,
     children: [
       {
@@ -49,6 +50,16 @@ export const constantRoutes = [
         }
       }
     ]
+  },
+  {
+    path: '/404',
+    component: () => import('src/views/ErrorPage/404'),
+    hidden: true
+  },
+  {
+    path: '/401',
+    component: () => import('src/views/ErrorPage/401'),
+    hidden: true
   },
   {
     path: '/home',
@@ -180,12 +191,30 @@ export const asyncRoutes = [
       }
     ]
   },
-  // 404 page must be placed at the end !!!
+  // edit
   {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
+    path: '/edit',
+    component: OpenLayout,
+    name: 'Edit',
+    hidden: true,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'anchor',
+        name: 'Anchor',
+        component: () => import('src/views/Anchor'),
+        meta: { title: 'Anchor' }
+      },
+      {
+        path: 'test',
+        name: 'Test',
+        component: () => import('src/views/About'),
+        meta: { title: 'Anchor' }
+      }
+    ]
+  },
+  // 404 page must be placed at the end !!!
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () =>

@@ -1,5 +1,13 @@
+<!--
+ * @Description:
+ * @Version: 0.1.0
+ * @Author: AiDongYang
+ * @Date: 2020-08-20 10:07:37
+ * @LastEditors: AiDongYang
+ * @LastEditTime: 2020-09-10 15:49:41
+-->
 <template>
-  <div style="padding: 0 15px;" @click="toggleClick">
+  <div class="hamburger-container" @click="toggleClick">
     <svg
       :class="{'is-active':isActive}"
       class="hamburger"
@@ -31,6 +39,10 @@ export default {
 </script>
 
 <style scoped>
+.hamburger-container {
+  margin-right: 15px;
+}
+
 .hamburger {
   display: inline-block;
   vertical-align: middle;
