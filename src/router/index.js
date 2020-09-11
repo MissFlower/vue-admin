@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 16:05:52
+ * @LastEditTime: 2020-09-11 19:01:54
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -123,6 +123,35 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
+  {
+    path: '/anchor',
+    component: MainLayout,
+    redirect: '/anchor/withlink',
+    meta: {
+      title: 'Anchor',
+      icon: 'el-icon-position'
+    },
+    children: [
+      {
+        path: 'index',
+        name: 'Anchor',
+        component: () => import('src/views/Anchor'),
+        meta: {
+          title: 'AnchorLink',
+          noCache: true
+        }
+      },
+      {
+        path: '/panel',
+        name: 'AnchorPanel',
+        component: () => import('src/views/AnchorPanel'),
+        meta: {
+          title: 'AnchorPanel',
+          noCache: true
+        }
+      }
+    ]
+  },
   {
     path: '/table',
     component: MainLayout,

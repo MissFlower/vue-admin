@@ -4,14 +4,11 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:27:28
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 18:53:01
+ * @LastEditTime: 2020-09-11 18:34:01
 -->
 <template>
   <div class="panel">
-    <div class="panel-header">
-      <i class="panel-icon" />
-      <span class="panel-title">{{ title }}</span>
-    </div>
+    <p class="panel-title">{{ title }}</p>
     <slot />
   </div>
 </template>
@@ -23,11 +20,6 @@ export default {
       type: String,
       default: ''
     }
-  },
-  data() {
-    return {
-
-    }
   }
 }
 </script>
@@ -35,22 +27,23 @@ export default {
 .panel {
   margin-bottom: 24px;
 
-  .panel-header {
-    .panel-icon {
+  .panel-title {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 12px;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
 
-    }
-    .panel-title {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 12px;
+    &::before {
+      content: '';
+      width: 2px;
+      height: 75%;
+      background-color: chartreuse;
       display: inline-block;
-      ::before {
-        content: '';
-        width: 2px;
-        height: 100%;
-        background-color: chartreuse;
-        display: block;
-      }
+      margin-right: 8px;
     }
   }
 }

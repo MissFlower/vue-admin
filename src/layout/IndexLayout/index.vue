@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 14:01:13
+ * @LastEditTime: 2020-09-11 13:23:45
 -->
 <template>
   <div class="app-wrapper">
@@ -36,5 +36,9 @@ export default {
   position: relative;
   min-width: 1280px;
   overflow: auto;
+
+  .app-main {
+    padding: 0;
+  }
 }
 </style>

@@ -2,12 +2,13 @@
  * @Description:
  * @Version: 0.1.0
  * @Author: AiDongYang
- * @Date: 2020-09-10 16:06:11
+ * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 14:54:27
+ * @LastEditTime: 2020-09-11 18:53:56
 -->
 <template>
-  <Anchor scroll-container="section">
+  <div>
+    <ElButton type="primary" @click.prevent="goAnchorPage">Anchor</ElButton>
     <AnchorPanel title="基础用法">
       <div class="base">基础用法</div>
     </AnchorPanel>
@@ -29,20 +30,27 @@
     <AnchorPanel title="工单列表">
       <div class="alarm">工单列表</div>
     </AnchorPanel>
-  </Anchor>
+  </div>
 </template>
+
 <script>
-import Anchor from 'src/components/Anchor'
 import AnchorPanel from 'src/components/Anchor/AnchorPanel'
 export default {
-  name: 'EditAnchor',
+  name: 'About',
   components: {
-    Anchor,
     AnchorPanel
+  },
+  methods: {
+    goAnchorPage() {
+      this.$router.push({
+        path: '/anchor/index'
+      })
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
+
 .base {
   width: 100%;
   height: 100px;

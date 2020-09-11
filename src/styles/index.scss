@@ -41,7 +41,11 @@ a:active,a:hover {
 }
 
 a:focus {
-  outline: 1px dotted
+  outline: none
+}
+
+:any-link {
+  color: rgb(0, 0, 238);
 }
 
 .clearfix:after,

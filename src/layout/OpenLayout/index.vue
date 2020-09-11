@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 15:21:11
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 15:30:24
+ * @LastEditTime: 2020-09-11 10:37:51
 -->
 <template>
   <div class="app-wrapper">
@@ -38,7 +38,8 @@ export default {
     height: 100%;
     padding-top: 50px;
     position: relative;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 </style>

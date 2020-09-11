@@ -4,10 +4,10 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 14:46:19
+ * @LastEditTime: 2020-09-11 13:42:30
 -->
 <template>
-  <section ref="appMain" :class="isIndex ? 'index-main' : 'app-main'">
+  <section class="app-main">
     <transition
       name="fade-transform"
       mode="out-in"
@@ -26,9 +26,6 @@ export default {
   computed: {
     key() {
       return this.$route.path
-    },
-    isIndex() {
-      return this.$route.path === '/index'
     }
   }
 }
