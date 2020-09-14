@@ -26,6 +26,7 @@ function position(scrollDOM) {
 }
 
 /**
+ * @param {String | HTMLElement | HTMLDocument} scrollEl
  * @param {number} to
  * @param {number} duration
  * @param {Function} callback

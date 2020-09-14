@@ -230,14 +230,8 @@ export const asyncRoutes = [
     children: [
       {
         path: 'anchor',
-        name: 'Anchor',
+        name: 'EditAnchor',
         component: () => import('src/views/Anchor'),
-        meta: { title: 'Anchor' }
-      },
-      {
-        path: 'test',
-        name: 'Test',
-        component: () => import('src/views/About'),
         meta: { title: 'Anchor' }
       }
     ]

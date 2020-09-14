@@ -25,6 +25,9 @@ export default {
   name: 'AppMain',
   computed: {
     key() {
+      if (document.querySelector('.app-main')?.scrollTop) {
+        document.querySelector('.app-main').scrollTop = 0
+      }
       return this.$route.path
     }
   }

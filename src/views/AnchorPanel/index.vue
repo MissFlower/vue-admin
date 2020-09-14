@@ -43,7 +43,7 @@ export default {
   methods: {
     goAnchorPage() {
       this.$router.push({
-        path: '/anchor/index'
+        path: '/edit/anchor'
       })
     }
   }

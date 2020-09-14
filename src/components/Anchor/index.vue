@@ -50,7 +50,7 @@ export default {
       return document.querySelector(this.scrollContainer)
     },
     anchorPageTop() {
-      return document.querySelector('.anchor-page').offsetTop
+      return document.querySelector('.anchor-page').getBoundingClientRect().top
     }
   },
   mounted() {
@@ -65,20 +65,21 @@ export default {
   },
   methods: {
     handleJump(item) {
-      scrollTo(this.scrollContainer, item.offsetTop - this.anchorPageTop, 500).then(() => {
+      scrollTo(this.scrollContainer, item.offsetTop - this.anchorPageTop, 500, null).then(() => {
         this.active = this.panels.findIndex(panel => panel === item)
       })
     },
     calcPaneInstances(isForceUpdate = false) {
       if (this.$slots.default) {
         // const paneSlots = this.$slots.default.filter(vnode => vnode.tag && vnode.componentOptions && vnode.componentOptions.propsData.title)
-        this.panels = this.$slots.default.map(vnode => {
+        const temp = this.$slots.default.map(vnode => {
           return {
             title: vnode.tag && vnode.componentOptions?.propsData?.title,
             href: vnode.tag && vnode.componentOptions?.propsData?.href ? vnode.componentOptions?.propsData?.href : 'javascript:;',
-            offsetTop: vnode.elm.offsetTop
+            offsetTop: vnode.elm.getBoundingClientRect().top
           }
         })
+        this.panels = temp
       }
     },
     scroll() {
