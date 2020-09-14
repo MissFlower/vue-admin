@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-09 20:06:48
+ * @LastEditTime: 2020-09-14 14:03:47
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -100,7 +100,7 @@ error => {
 
       case 401:
         // 未登录
-        Message.warning('登录已过期,请重新登录!')
+        Message.warning(`${error.response.data.message || '登录已过期,请重新登录!'}`)
         break
       default:
     }

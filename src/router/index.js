@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 19:01:54
+ * @LastEditTime: 2020-09-14 17:52:10
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -142,7 +142,7 @@ export const asyncRoutes = [
         }
       },
       {
-        path: '/panel',
+        path: 'panel',
         name: 'AnchorPanel',
         component: () => import('src/views/AnchorPanel'),
         meta: {

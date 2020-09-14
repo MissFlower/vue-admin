@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-08-20 16:47:52
+ * @LastEditTime: 2020-09-14 17:47:33
 -->
 <template>
   <div class="sidebar-container">
@@ -52,6 +52,7 @@ export default {
       const route = this.$route
       const { meta, path } = route
       // 如果设置路径，侧栏将突出显示您设置的路径
+      console.log(meta.activeMenu)
       if (meta.activeMenu) {
         return meta.activeMenu
       }
