@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-14 17:52:10
+ * @LastEditTime: 2020-09-16 14:12:33
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -148,6 +148,34 @@ export const asyncRoutes = [
         meta: {
           title: 'AnchorPanel',
           noCache: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/webgl',
+    component: MainLayout,
+    name: 'Webgl',
+    redirect: '/webgl/earth',
+    meta: {
+      title: 'Webgl',
+      icon: 'el-icon-position'
+    },
+    children: [
+      {
+        path: 'earth',
+        name: 'WebglEarth',
+        component: () => import('src/views/WebglEarth'),
+        meta: {
+          title: 'Webgl Earth'
+        }
+      },
+      {
+        path: 'ball',
+        name: 'WebglBall',
+        component: () => import('src/views/WebglBall'),
+        meta: {
+          title: 'Webgl Ball'
         }
       }
     ]
