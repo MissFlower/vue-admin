@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-15 15:45:14
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-16 19:04:48
+ * @LastEditTime: 2020-09-17 14:44:42
 -->
 <template>
   <div class="webgl-box">
@@ -23,9 +23,20 @@ export default {
       light: null, // 灯光
       renderer: null, // 渲染器
       radius: 300, // 半径
-      start: [116, 39], // 开始位置
+      start: [0, 90], // 开始位置
       destination: [
-        [68, 41]
+        [0, 0],
+        [0, 180],
+        [0, 90],
+        [0, 0],
+        [45, 0],
+        [90, 0],
+        [180, 0],
+        [-90, 0],
+        [-100, 0],
+        [45, 45],
+        [116.397128, 39.916527],
+        [0, -90]
       ],
       posTracks: []
     }
@@ -81,11 +92,11 @@ export default {
 
       // 画点
       this.drawPoint(
-        this.getPosition(this.start[0], this.start[1], this.radius + 3)
+        this.getPosition(this.start[0], this.start[1], this.radius)
       )
 
       this.destination.forEach((ele, index) => {
-        const pos = this.getPosition(ele[0], ele[1], this.radius + 3)
+        const pos = this.getPosition(ele[0], ele[1], this.radius)
         this.drawPoint(pos)
         this.drawLine(this.start[0], this.start[1], ele[0], ele[1], index)
       })
@@ -167,12 +178,12 @@ export default {
       // 创建球坐标(Spherical)
       const spherical = new THREE.Spherical()
       // 从笛卡尔坐标系中设置球坐标
-      spherical.setFromCartesianCoords(pos.x, pos.y, pos.z)
+      // spherical.setFromCartesianCoords(pos.x, pos.y, pos.z)
+      spherical.setFromVector3(pos)
       // console.log(spherical.theta / Math.PI)
 
       // spherical.phi 和x轴夹角 x轴正方向到负方向
-      // spherical.theta 和y轴夹角 y周正方向到负方向
-      console.log(spherical.phi)
+      // spherical.theta 和y轴夹角 y周正方向到负方向groupPoint.rotateX(spherical.phi - Math.PI / 2);
       groupPoint.rotateX(spherical.phi - Math.PI / 2)
       groupPoint.rotateY(spherical.theta)
       groupPoint.position.set(pos.x, pos.y, pos.z)
@@ -248,11 +259,12 @@ export default {
         this.inputAnimate()
       }
     },
-    getPosition(longitude, latitude, radius = this.radius) {
+    getPosition(lngitude, latitude, radius = this.radius) {
       // 经纬度转化为坐标
       // 先将经纬度转化为弧度
-      const lg = THREE.Math.degToRad(longitude)
+      const lg = THREE.Math.degToRad(lngitude)
       const lt = THREE.Math.degToRad(latitude)
+      // console.log('弧度：', lg, lt)
       // 弧度转为角度 获取x，y，z坐标
       const temp = radius * Math.cos(lt)
       const x = temp * Math.sin(lg)
@@ -320,6 +332,7 @@ export default {
       this.Anima = requestAnimationFrame(this.animate)
       const time = this.clock.getDelta()
       this.group.rotateY((time * Math.PI) / 8)
+      this.group.rotateY(0)
       // console.log(time)
       this.mixer.update(time)
     }

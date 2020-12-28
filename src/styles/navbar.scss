@@ -3,7 +3,6 @@
   justify-content: space-between;
   width: 100%;
   height: 50px;
-  padding: 0 20px;
   box-sizing: border-box;
   border-bottom: 1px solid #ccc;
   position: fixed;
@@ -21,7 +20,7 @@
   .nav-bar-left {
     width: $sideBarWidth !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100%;
     border-bottom: 1px solid #f1f1ff;
@@ -47,6 +46,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 20px;
 
     .right-menu-item {
       color: #5a5e66;

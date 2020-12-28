@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 17:45:53
+ * @LastEditTime: 2020-12-21 13:54:13
 -->
 <template>
   <div id="app">
@@ -15,6 +15,7 @@
 
 <script>
 import Loading from 'src/components/Loading'
+import { removeWatermark, setWaterMark } from 'src/utils/watermark'
 export default {
   name: 'App',
   components: {
@@ -24,6 +25,12 @@ export default {
     showLoading() {
       return this.$store.state.common.requestCount > 0
     }
+  },
+  mounted() {
+    setWaterMark(this.$store.getters.name, 5924)
+  },
+  destroyed() {
+    removeWatermark()
   }
 }
 </script>
