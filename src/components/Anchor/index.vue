@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:31:57
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 18:34:54
+ * @LastEditTime: 2020-12-31 18:19:42
 -->
 <template>
   <div class="anchor-page">
@@ -12,7 +12,7 @@
       <AnchorLink :current="active" :panel-instances="panels" @jump="handleJump" />
     </div>
     <div class="main">
-      <slot a="1" />
+      <slot />
     </div>
     <div class="foot">
       <slot name="foot" />
@@ -98,10 +98,11 @@ export default {
 <style lang="scss" scoped>
 .sidebar-warp {
   width: 200px;
-  position:sticky;
-  top: 0px;
+  position: sticky;
+  top: 0;
   float: left;
 }
+
 .main {
   margin-left: 200px;
 }

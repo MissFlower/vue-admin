@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:27:28
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 18:34:01
+ * @LastEditTime: 2020-12-31 18:20:42
 -->
 <template>
   <div class="panel">
@@ -28,13 +28,12 @@ export default {
   margin-bottom: 24px;
 
   .panel-title {
+    display: flex;
     font-size: 16px;
     color: #666;
     margin-bottom: 12px;
-    display: inline-block;
     height: 24px;
     line-height: 24px;
-    display: flex;
     align-items: center;
 
     &::before {

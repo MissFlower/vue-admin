@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-21 13:54:13
+ * @LastEditTime: 2020-12-31 18:19:26
 -->
 <template>
   <div id="app">
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Loading from 'src/components/Loading'
 import { removeWatermark, setWaterMark } from 'src/utils/watermark'
 export default {
@@ -24,20 +25,30 @@ export default {
   computed: {
     showLoading() {
       return this.$store.state.common.requestCount > 0
-    }
+    },
+    ...mapGetters({
+      username: 'name'
+    })
   },
-  mounted() {
-    setWaterMark(this.$store.getters.name, 5924)
+  watch: {
+    username: 'createWaterMark'
   },
   destroyed() {
     removeWatermark()
+  },
+  methods: {
+    createWaterMark(name) {
+      setWaterMark(name, 5924)
+    }
   }
 }
 </script>
 <style lang="scss">
 #app {
   height: 100%;
-  div, section {
+
+  div,
+  section {
     box-sizing: border-box;
   }
 }

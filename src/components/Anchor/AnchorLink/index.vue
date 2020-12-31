@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:28:13
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 16:23:09
+ * @LastEditTime: 2020-12-31 18:31:39
 -->
 <template>
   <div :class="anchorLinkClasses" class="anchor-link-container">
@@ -58,9 +58,11 @@ export default {
 <style lang="scss" scoped>
 $anchorLinkLine: 36px;
 $anchorLinkDot: 8px;
-@mixin anchorLinkDotLeft($width){
-	width: $width;
+
+@mixin anchorLinkDotLeft($width) {
+  width: $width;
 }
+
 @function half($n) {
   @return $n / 2 - 1;
 }
@@ -71,7 +73,7 @@ $anchorLinkDot: 8px;
   font-size: 14px;
 
   &:last-child::before {
-      display: none;
+    display: none;
   }
 
   a {

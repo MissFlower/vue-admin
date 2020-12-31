@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 16:06:11
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 15:16:35
+ * @LastEditTime: 2020-12-31 17:30:32
 -->
 <template>
   <div class="anchor-page">
@@ -81,7 +81,7 @@ export default {
     },
     calcPaneInstances(isForceUpdate = false) {
       if (this.$slots.default) {
-        console.log(this.$slots)
+        // console.log(this.$slots)
         const paneSlots = this.$slots.default.filter(vnode => vnode.tag && vnode.componentOptions && (['AnchorCollapsePane', 'AnchorPane']))
         console.log(paneSlots)
       }

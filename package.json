@@ -5,7 +5,18 @@
   "scripts": {
     "dev": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint-staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": "eslint --ext .js",
+    "src/**/*.vue": "eslint --ext .vue && stylelint --fix",
+    "src/**/*.scss": "stylelint --syntax scss && stylelint --fix scss"
   },
   "dependencies": {
     "animate.css": "^4.1.0",
@@ -33,11 +44,16 @@
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
-    "compression-webpack-plugin": "^7.1.1",
+    "compression-webpack-plugin": "^5.0.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.3.6",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "script-ext-html-webpack-plugin": "^2.1.5",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "svg-sprite-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.11"
   }

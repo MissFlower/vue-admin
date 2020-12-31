@@ -45,7 +45,7 @@ module.exports = {
     // 这样就相当于本地请求是使用服务器地址请求的，是本地和服务器同源 进行发送cookie
     proxy: {
       '/api': {
-        target: 'http://localhost:4000/', // 要跨域的域名
+        target: 'http://localhost:5000/', // 要跨域的域名
         changeOrigin: true, // 是否开启跨域
         // ws: true, // proxy websockets
         // pathRewrite方法重写url
@@ -161,7 +161,7 @@ module.exports = {
       config.optimization.runtimeChunk('single')
 
       config
-        .plugin('script-ext-html-webpack-plugin')
+        .plugin('compression-webpack-plugin')
         .use(
           new CompressionWebpackPlugin({
             filename: '[path].gz[query]', // 目标资源名称
