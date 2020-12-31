@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-03 13:58:27
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-03 14:22:02
+ * @LastEditTime: 2020-12-31 19:14:37
 -->
 <template>
   <div class="loading-mask">
@@ -28,46 +28,48 @@
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 10000;
 }
-.loading{
+
+.loading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  span{
+  span {
     display: inline-block;
     width: 12px;
     height: 100%;
     margin: 0 4px;
     border-radius: 1px;
-    background: #3333ff;
+    background: #33f;
     animation: load 1s ease infinite;
 
     &:nth-child(2) {
       animation-delay: 0.25s;
-      background: #0066ff;
+      background: #06f;
     }
 
     &:nth-child(3) {
       animation-delay: 0.5s;
-      background: #33cc33;
+      background: #3c3;
     }
 
     &:nth-child(4) {
       animation-delay: 0.75s;
-      background: #00cc33;
+      background: #0c3;
     }
   }
 }
 
 @keyframes load {
   0%,
-  100%{
-      height: 40px;
+  100% {
+    height: 40px;
   }
-  50%{
-      height: 70px;
-      margin: -15px 4px;
+
+  50% {
+    height: 70px;
+    margin: -15px 4px;
   }
 }
 </style>

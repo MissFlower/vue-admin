@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-12-28 16:14:08
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-28 16:14:23
+ * @LastEditTime: 2020-12-31 19:14:47
 -->
 <template>
   <div class="search-form-container">
@@ -31,7 +31,7 @@ export default {
 .search-form-container /deep/ {
   margin-bottom: 24px;
 
-  .el-form{
+  .el-form {
     display: flex;
     // justify-content: space-around;
     flex-wrap: wrap;
@@ -41,18 +41,19 @@ export default {
 
   .el-form-item {
     flex: 0 1 calc((100% - 54px) / 4);
-    margin-right: 0px;
+    margin-right: 0;
     margin-bottom: -5px;
   }
+
   .el-form-item__content,
-  .el-select  {
+  .el-select {
     width: 100%;
   }
 
   .search-button-box {
     text-align: center;
 
-    .el-button+.el-button {
+    .el-button + .el-button {
       margin-left: 18px;
     }
   }

@@ -33,6 +33,7 @@ export default {
 .function-btn {
   margin-bottom: 24px;
 }
+
 .footer {
   text-align: right;
   margin-top: 24px;

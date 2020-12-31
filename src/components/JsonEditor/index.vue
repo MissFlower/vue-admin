@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-10-15 17:44:48
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-10-21 14:15:24
+ * @LastEditTime: 2020-12-31 19:13:49
 -->
 <template>
   <div id="json-editor">
@@ -108,9 +108,15 @@ export default {
     .CodeMirror-scroll {
       height: 100%;
     }
-    .CodeMirror-scroll, .CodeMirror-sizer, .CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber {
+
+    .CodeMirror-scroll,
+    .CodeMirror-sizer,
+    .CodeMirror-gutter,
+    .CodeMirror-gutters,
+    .CodeMirror-linenumber {
       box-sizing: content-box !important;
     }
+
     .CodeMirror-placeholder {
       color: #999;
       padding: 0 9px;
@@ -122,7 +128,7 @@ export default {
     // }
 
     .cm-s-monokai .CodeMirror-linenumber {
-      color: #4D4D4C;
+      color: #4d4d4c;
     }
 
     // .cm-s-monokai .CodeMirror-activeline-background {
@@ -134,13 +140,15 @@ export default {
     // }
 
     .cm-s-monokai span.cm-string {
-      color: #718C00;
+      color: #718c00;
     }
+
     .cm-s-monokai span.cm-property {
-      color: #C82829;
+      color: #c82829;
     }
+
     .cm-s-monokai span.cm-number {
-      color: #F5871F;
+      color: #f5871f;
     }
   }
 }
