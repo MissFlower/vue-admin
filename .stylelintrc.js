@@ -4,6 +4,7 @@ module.exports = {
     "indentation": 2,
     "no-descending-specificity": null,
     "selector-pseudo-class-no-unknown": null,
-    "property-no-unknown": null
+    "property-no-unknown": null,
+    "checkPrefixed": false
   }
 }
