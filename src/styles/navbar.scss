@@ -52,10 +52,10 @@
       color: #5a5e66;
 
       &.hover-effect {
-        transition: background .3s;
+        transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
     }

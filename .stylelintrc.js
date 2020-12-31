@@ -5,6 +5,6 @@ module.exports = {
     "no-descending-specificity": null,
     "selector-pseudo-class-no-unknown": null,
     "property-no-unknown": null,
-    "checkPrefixed": false
+    "at-rule-no-unknown": null
   }
 }
