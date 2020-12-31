@@ -3,25 +3,57 @@
 @import './sidebar.scss';
 @import './transition.scss';
 @import './message.scss';
-html, body {
+
+html,
+body {
   height: 100%;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -moz-user-select: none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-}
-blockquote,body,dd,dir,dl,fieldset,figure,form,h1,h2,h3,h4,h5,h6,hr,input,legend,menu,ol,optgroup,p,pre,tbody,td,textarea,tfoot,th,thead,ul {
-  margin: 0;
-  padding: 0
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-ol,ul {
+blockquote,
+body,
+dd,
+dir,
+dl,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+menu,
+ol,
+optgroup,
+p,
+pre,
+tbody,
+td,
+textarea,
+tfoot,
+th,
+thead,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
   list-style-type: none;
-  list-style-image: none
+  list-style-image: none;
 }
 
 img {
@@ -33,28 +65,29 @@ a {
 }
 
 a:active {
-  background-color: transparent
+  background-color: transparent;
 }
 
-a:active,a:hover {
-  outline: 0 none
+a:active,
+a:hover {
+  outline: 0 none;
 }
 
 a:focus {
-  outline: none
+  outline: none;
 }
 
 :any-link {
   color: rgb(0, 0, 238);
 }
 
-.clearfix:after,
-.clearfix:before {
+.clearfix::after,
+.clearfix::before {
   content: "";
   display: table;
 }
 
-.clearfix:after {
+.clearfix::after {
   clear: both;
 }
 
@@ -84,22 +117,21 @@ a:focus {
   width: 18px;
 }
 
-
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-::-webkit-scrollbar{
+/* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
+::-webkit-scrollbar {
   width: 10px;
   height: 10px;
   overflow: auto;
 }
 
-/*定义滚动条轨道 内阴影+圆角*/
+/* 定义滚动条轨道 内阴影+圆角 */
 ::-webkit-scrollbar-track {
   background-color: #f7f7f7;
   border: 1px solid #efefef;
 }
 
-/*定义滑块 内阴影+圆角*/
-::-webkit-scrollbar-thumb{
+/* 定义滑块 内阴影+圆角 */
+::-webkit-scrollbar-thumb {
   min-width: 25px;
   min-height: 25px;
   background-color: #e6e6e6;
