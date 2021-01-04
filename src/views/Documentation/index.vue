@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-10-21 18:54:17
+ * @LastEditTime: 2021-01-04 11:53:04
 -->
 <template>
   <div class="components-container">
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.editor-container{
+.editor-container {
   position: relative;
   height: 100%;
 }

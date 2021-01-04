@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 16:06:11
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 14:54:27
+ * @LastEditTime: 2021-01-04 11:55:55
 -->
 <template>
   <Anchor scroll-container="section">
@@ -46,22 +46,24 @@ export default {
 .base {
   width: 100%;
   height: 100px;
-  background-color: chartreuse;
-  text-align: center;
   line-height: 100px;
+  text-align: center;
+  background-color: chartreuse;
 }
+
 .static {
   width: 100%;
   height: 200px;
-  background-color: rgb(255, 0, 76);
-  text-align: center;
   line-height: 200px;
+  text-align: center;
+  background-color: rgb(255, 0, 76);
 }
+
 .alarm {
   width: 100%;
   height: 200px;
-  background-color: rgb(68, 0, 255);
-  text-align: center;
   line-height: 200px;
+  text-align: center;
+  background-color: rgb(68, 0, 255);
 }
 </style>

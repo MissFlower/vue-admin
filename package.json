@@ -15,7 +15,10 @@
   },
   "lint-staged": {
     "src/**/*.js": "eslint --ext .js",
-    "src**/*.vue": ["eslint --ext .vue", "stylelint --fix"],
+    "src/**/*.vue": [
+      "eslint --ext .vue",
+      "stylelint --fix"
+    ],
     "src/**/*.scss": "stylelint --syntax scss && stylelint --fix scss"
   },
   "dependencies": {

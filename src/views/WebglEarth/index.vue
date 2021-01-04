@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-15 15:45:14
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-17 14:44:42
+ * @LastEditTime: 2021-01-04 11:54:13
 -->
 <template>
   <div class="webgl-box">
@@ -341,11 +341,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .webgl-box {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 // .webgl-global {
 //   width: 100%;
