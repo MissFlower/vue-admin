@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 18:53:56
+ * @LastEditTime: 2021-01-04 11:46:04
 -->
 <template>
   <div>
@@ -50,26 +50,27 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 .base {
   width: 100%;
   height: 100px;
-  background-color: chartreuse;
-  text-align: center;
   line-height: 100px;
+  text-align: center;
+  background-color: chartreuse;
 }
+
 .static {
   width: 100%;
   height: 200px;
-  background-color: rgb(255, 0, 76);
-  text-align: center;
   line-height: 200px;
+  text-align: center;
+  background-color: rgb(255, 0, 76);
 }
+
 .alarm {
   width: 100%;
   height: 200px;
-  background-color: rgb(68, 0, 255);
-  text-align: center;
   line-height: 200px;
+  text-align: center;
+  background-color: rgb(68, 0, 255);
 }
 </style>

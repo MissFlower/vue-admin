@@ -6,14 +6,11 @@
 
 html,
 body {
+  box-sizing: border-box;
   height: 100%;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -46,8 +43,8 @@ tfoot,
 th,
 thead,
 ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 ol,
@@ -83,8 +80,8 @@ a:focus {
 
 .clearfix::after,
 .clearfix::before {
-  content: "";
   display: table;
+  content: "";
 }
 
 .clearfix::after {
@@ -126,14 +123,14 @@ a:focus {
 
 /* 定义滚动条轨道 内阴影+圆角 */
 ::-webkit-scrollbar-track {
-  background-color: #f7f7f7;
   border: 1px solid #efefef;
+  background-color: #f7f7f7;
 }
 
 /* 定义滑块 内阴影+圆角 */
 ::-webkit-scrollbar-thumb {
   min-width: 25px;
   min-height: 25px;
-  background-color: #e6e6e6;
   border: 1px solid #e0e0e0;
+  background-color: #e6e6e6;
 }
