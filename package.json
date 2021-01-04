@@ -15,9 +15,8 @@
   },
   "lint-staged": {
     "src/**/*.js": "eslint --ext .js",
-    "src**/*.vue": "eslint --ext .vue",
-    "src/**/*.scss": "stylelint --syntax scss && stylelint --fix scss",
-    "**/*.vue": "stylelint --fix"
+    "src**/*.vue": ["eslint --ext .vue", "stylelint --fix"],
+    "src/**/*.scss": "stylelint --syntax scss && stylelint --fix scss"
   },
   "dependencies": {
     "animate.css": "^4.1.0",
