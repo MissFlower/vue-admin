@@ -51,15 +51,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 
   .main {
+    position: relative;
     width: 100%;
     height: 100%;
     padding-top: 50px;
-    position: relative;
     overflow: auto;
   }
 }

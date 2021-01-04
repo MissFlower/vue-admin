@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 15:47:59
+ * @LastEditTime: 2021-01-04 12:03:49
 -->
 <template>
   <div class="nav-bar">
@@ -38,7 +38,7 @@
             <ElDropdownItem>Docs</ElDropdownItem>
           </a>
           <ElDropdownItem divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
+            <span style="display: block;">Log Out</span>
           </ElDropdownItem>
         </ElDropdownMenu>
       </ElDropdown>

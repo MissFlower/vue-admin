@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-11 13:23:45
+ * @LastEditTime: 2021-01-04 12:04:09
 -->
 <template>
   <div class="app-wrapper">
@@ -30,11 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  position: relative;
   width: 100%;
+  min-width: 1280px;
   height: 100%;
   padding-top: 50px;
-  position: relative;
-  min-width: 1280px;
   overflow: auto;
 
   .app-main {

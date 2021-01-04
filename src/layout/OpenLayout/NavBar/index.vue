@@ -26,7 +26,7 @@
             <ElDropdownItem>Docs</ElDropdownItem>
           </a>
           <ElDropdownItem divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
+            <span style="display: block;">Log Out</span>
           </ElDropdownItem>
         </ElDropdownMenu>
       </ElDropdown>
@@ -49,24 +49,24 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-bar {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
   position: fixed;
+  z-index: 10001;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10001;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #ccc;
 
   .nav-bar-left {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     height: 100%;
+    padding: 0 20px;
     border-bottom: 1px solid #f1f1ff;
 
     .logo-box {
@@ -93,7 +93,7 @@ export default {
         transition: background .3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, .025);
         }
       }
     }

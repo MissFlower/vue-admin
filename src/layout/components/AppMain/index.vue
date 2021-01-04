@@ -37,9 +37,10 @@ export default {
 <style lang="scss" scoped>
 .app-main,
 .index-main {
-  overflow: auto;
   height: 100%;
+  overflow: auto;
 }
+
 .app-main {
   min-width: 1170px;
   padding: 24px;
