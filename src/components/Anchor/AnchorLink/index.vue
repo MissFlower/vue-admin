@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:28:13
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-31 19:06:41
+ * @LastEditTime: 2021-01-04 12:01:23
 -->
 <template>
   <div :class="anchorLinkClasses" class="anchor-link-container">
@@ -59,17 +59,9 @@ export default {
 $anchorLinkLine: 36px;
 $anchorLinkDot: 8px;
 
-@mixin anchorLinkDotLeft($width) {
-  width: $width;
-}
-
-@function half($n) {
-  @return $n / 2 - 1;
-}
-
 .anchor-link {
-  margin-bottom: $anchorLinkLine;
   position: relative;
+  margin-bottom: $anchorLinkLine;
   font-size: 14px;
 
   &:last-child::before {
@@ -77,35 +69,43 @@ $anchorLinkDot: 8px;
   }
 
   a {
-    height: 24px;
-    line-height: 24px;
     display: flex;
     align-items: center;
+    height: 24px;
+    line-height: 24px;
 
     &::before {
-      content: '';
+      display: inline-block;
       width: $anchorLinkDot;
       height: $anchorLinkDot;
+      margin-right: 8px;
       border-radius: 50%;
       background-color: rgb(0, 255, 136);
-      display: inline-block;
-      margin-right: 8px;
-      transition: 0.3s all ease-in-out;
+      transition: .3s all ease-in-out;
+      content: '';
     }
   }
 
   &::before {
-    content: '';
-    width: 1px;
-    height: $anchorLinkLine;
-    background-color: rgb(255, 123, 0);
     position: absolute;
     top: 24px;
     left: half($anchorLinkDot);
+    width: 1px;
+    height: $anchorLinkLine;
+    background-color: rgb(255, 123, 0);
+    content: '';
   }
 }
 
 .anchor-link-active a::before {
   background-color: rgb(255, 0, 157);
+}
+
+@mixin anchorLinkDotLeft($width) {
+  width: $width;
+}
+
+@function half($n) {
+  @return $n / 2 - 1;
 }
 </style>
