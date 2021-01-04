@@ -29,20 +29,20 @@ export default {
 
   .panel-title {
     display: flex;
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 12px;
-    height: 24px;
-    line-height: 24px;
     align-items: center;
+    height: 24px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
 
     &::before {
-      content: '';
+      display: inline-block;
       width: 2px;
       height: 75%;
-      background-color: chartreuse;
-      display: inline-block;
       margin-right: 8px;
+      background-color: chartreuse;
+      content: '';
     }
   }
 }

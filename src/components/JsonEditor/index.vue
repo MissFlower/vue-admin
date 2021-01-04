@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-10-15 17:44:48
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-31 19:13:49
+ * @LastEditTime: 2021-01-04 12:02:25
 -->
 <template>
   <div id="json-editor">
@@ -118,9 +118,9 @@ export default {
     }
 
     .CodeMirror-placeholder {
-      color: #999;
       padding: 0 9px;
       font-size: 14px;
+      color: #999;
     }
 
     // .cm-s-monokai.CodeMirror {

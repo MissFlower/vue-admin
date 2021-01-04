@@ -18,15 +18,15 @@
 </template>
 <style lang="scss" scoped>
 .loading-mask {
-  width: 100%;
-  height: 100%;
   position: fixed;
+  z-index: 10000;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .loading {
@@ -45,18 +45,18 @@
     animation: load 1s ease infinite;
 
     &:nth-child(2) {
-      animation-delay: 0.25s;
       background: #06f;
+      animation-delay: .25s;
     }
 
     &:nth-child(3) {
-      animation-delay: 0.5s;
       background: #3c3;
+      animation-delay: .5s;
     }
 
     &:nth-child(4) {
-      animation-delay: 0.75s;
       background: #0c3;
+      animation-delay: .75s;
     }
   }
 }

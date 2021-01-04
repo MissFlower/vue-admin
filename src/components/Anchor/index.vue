@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-09-10 11:31:57
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-31 18:19:42
+ * @LastEditTime: 2021-01-04 12:02:06
 -->
 <template>
   <div class="anchor-page">
@@ -97,10 +97,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .sidebar-warp {
-  width: 200px;
   position: sticky;
   top: 0;
   float: left;
+  width: 200px;
 }
 
 .main {

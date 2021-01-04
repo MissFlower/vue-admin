@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-12-28 16:14:51
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-28 16:14:52
+ * @LastEditTime: 2021-01-04 12:02:35
 -->
 <template>
   <div class="table-list-box">
@@ -35,7 +35,7 @@ export default {
 }
 
 .footer {
-  text-align: right;
   margin-top: 24px;
+  text-align: right;
 }
 </style>
