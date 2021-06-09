@@ -4,13 +4,13 @@
  * @Author: AiDongYang
  * @Date: 2020-12-28 16:01:47
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-28 16:01:48
+ * @LastEditTime: 2021-02-08 16:07:07
  */
 import axios from 'axios'
 const requestMap = new Map()
 
 function addRequest(config) {
-  const requestKey = `${config.method}${config.url}`
+  const requestKey = `${config.method}${config.url}}`
   config.cancelToken = config.cancelToken || new axios.CancelToken((cancel) => {
     // 如果pendingAjax中不存在当前请求，添加进去
     if (requestKey && !requestMap.has(requestKey)) {

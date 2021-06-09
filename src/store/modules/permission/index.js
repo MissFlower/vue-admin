@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-10 18:26:10
+ * @LastEditTime: 2021-02-03 13:18:28
  */
 import { asyncRoutes, constantRoutes } from 'src/router'
 import * as types from './types'
@@ -17,7 +17,7 @@ import * as types from './types'
  */
 function hasPermission(permissionList, route) {
   if (route.meta && route.meta.code) {
-    return !!permissionList.find(permission => permission.code === route.meta.code)
+    return permissionList.some(permission => permission.code === route.meta.code)
   } else {
     return true
   }

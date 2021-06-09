@@ -4,7 +4,7 @@
  * @Autor: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-16 14:12:33
+ * @LastEditTime: 2021-02-03 11:09:47
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -245,6 +245,26 @@ export const asyncRoutes = [
         name: 'MixChart',
         component: () => import('src/views/MixChart'),
         meta: { title: 'Mix Chart', noCache: true, code: '002003' }
+      }
+    ]
+  },
+  {
+    path: '/upload',
+    component: MainLayout,
+    name: 'Upload',
+    meta: {
+      title: 'Upload',
+      icon: 'el-icon-tickets',
+      code: ''
+    },
+    children: [
+      {
+        path: 'bigFile',
+        name: 'BigFile',
+        component: () => import('src/views/FileUpload'),
+        meta: {
+          title: '大文件上传'
+        }
       }
     ]
   },

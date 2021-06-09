@@ -35,6 +35,9 @@ module.exports = {
     // 组件 name 属性值必须使用帕斯卡命名法（单词首字母大写）
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off", // 禁用禁止使用 v-html 的校验
+    'vue/html-self-closing': 2, // 忽略html标签自闭合
+    'vue/attributes-order': 2,
+    'vue/attribute-hyphenation': 2,
     // 对象必须使用 getter / setter 对，即：每个已定义 setter 的属性都需有一个 getter
     'accessor-pairs': 2,
     // 箭头函数 => 前后必须有空格

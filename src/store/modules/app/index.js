@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 10:07:37
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-09-09 11:14:56
+ * @LastEditTime: 2021-02-07 17:06:45
  */
 import Cookie from 'js-cookie'
 import * as types from './types'

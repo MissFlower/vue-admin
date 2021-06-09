@@ -4,7 +4,7 @@
  * @Author: AiDongYang
  * @Date: 2020-08-20 15:05:34
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-08-20 16:44:01
+ * @LastEditTime: 2021-02-03 10:09:36
 -->
 <template>
   <div v-if="!item.hidden">
@@ -58,8 +58,9 @@ export default {
     }
   },
   data() {
+    this.onlyOneChild = null
     return {
-      onlyOneChild: null
+
     }
   },
   methods: {

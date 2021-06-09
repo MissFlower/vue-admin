@@ -4,7 +4,7 @@
  * @Author: DoveyLoveyCora
  * @Date: 2020-08-16 17:09:42
  * @LastEditors: AiDongYang
- * @LastEditTime: 2020-12-28 16:11:05
+ * @LastEditTime: 2021-03-18 11:14:12
  */
 import axios from 'axios'
 import qs from 'qs'
@@ -17,7 +17,7 @@ import defaultSettings from 'src/settings'
 import { addRequest, removeRequest } from './cancelRequest'
 
 // 请求超时时间
-const TIMEOUT = 10000
+const TIMEOUT = 10000000
 const BASE_URL = process.env.VUE_APP_BASE_API
 axios.defaults.withCredentials = true // 开启发送cookie 前端开启后端也得开启 不然报 Provisional headers are shown
 
@@ -91,7 +91,7 @@ http.interceptors.response.use(response => {
   return result.data
 },
 error => {
-  if (error.message.loading || error.config.loading) {
+  if (error.message?.loading || error.config?.loading) {
     store.commit(UPDATE_REQUEST_COUNT, -1)
   }
 
@@ -127,6 +127,7 @@ error => {
       default:
     }
   }
+
   return Promise.reject(error)
 })
 
@@ -156,7 +157,7 @@ request.post2Upload = (url, data, config) => {
 }
 
 ;['get', 'post', 'put', 'delete', 'patch'].forEach(method => {
-  if (method === 'get' || method === 'delete') {
+  if (method === 'get') {
     request[method] = (url, params, config) => {
       return http({
         url,
